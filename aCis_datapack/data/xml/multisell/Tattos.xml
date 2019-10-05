@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- Tattoo Shop -->
+<list maintainEnchantment="false">
+	<!-- Tattoo Of Power Attack -->
+	<item id="1">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="485" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Reflect Damage -->
+	<item id="2">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="486" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Speed -->
+	<item id="3">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="487" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Magic Attack -->
+	<item id="4">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="488" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Critical Damage -->
+	<item id="5">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="489" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Accuracy -->
+	<item id="6">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="490" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Max HP -->
+	<item id="7">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="491" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo of Attack Speed -->
+	<item id="8">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="492" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Casting Speed -->
+	<item id="9">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="493" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Power Defense -->
+	<item id="10">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="494" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Magic Defense -->
+	<item id="11">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="495" count="1" enchant="0"/>
+	</item>
+	<!-- Tattoo Of Evasion -->
+	<item id="12">
+		<ingredient id="9210" count="500"/>
+		<ingredient id="9211" count="500"/>
+		<ingredient id="9212" count="500"/>
+		<ingredient id="9213" count="500"/>
+		<ingredient id="9214" count="500"/>
+		<ingredient id="9215" count="500"/>
+		<ingredient id="9216" count="500"/>
+		<production id="496" count="1" enchant="0"/>
+	</item>
+</list>

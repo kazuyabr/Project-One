@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>				
+	<item id="9300" type="Armor" name="Dynasty helmet">
+		<set name="icon" val="icon.Armor_Head06" />
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="head" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="110" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9301" type="Armor" name="Dynasty breast plate bard - Heavy">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t91_uke_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="715" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="7620" />
+		<set name="price" val="14300000" />
+		<for>
+			<add order="0x10" stat="pDef" val="372" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9302" type="Armor" name="Dynasty breast plate force master - Heavy">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t91_uf_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="715" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="7620" />
+		<set name="price" val="14300000" />
+		<for>
+			<add order="0x10" stat="pDef" val="372" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9303" type="Armor" name="Dynasty breast plate weapon master - Heavy">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t91_u_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="715" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="7620" />
+		<set name="price" val="14300000" />
+		<for>
+			<add order="0x10" stat="pDef" val="372" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9304" type="Armor" name="Dynasty breast plate shield master - Heavy">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t91_uk_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="715" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="7620" />
+		<set name="price" val="14300000" />
+		<for>
+			<add order="0x10" stat="pDef" val="372" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9305" type="Armor" name="Dynasty Breast Plate - Heavy">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t91_u_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="715" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="7620" />
+		<set name="price" val="14300000" />
+		<for>
+			<add order="0x10" stat="pDef" val="372" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9306" type="Armor" name="Dynasty Gauntlet- Heavy">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t91_g_i00" />
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="540" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="74" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9307" type="Armor" name="Dynasty Gaiters - Heavy ">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t91_l_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="legs" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="448" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="3260" />
+		<set name="price" val="8960000" />
+		<for>
+			<add order="0x10" stat="pDef" val="170" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9308" type="Armor" name="Dynasty Boots - Heavy">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t91_b_i00" />
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="1110" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="74" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9309" type="Armor" name="Dynasty Leather Armor dagger master - Light">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t92_ud_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="304" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9310" type="Armor" name="Dynasty Leather Armor - Light">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t92_u_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="304" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9311" type="Armor" name="Dynasty Leather Armor Bow master - Light">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t92_ub_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="304" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9312" type="Armor" name="Dynasty Leather Armor Bow master - Light">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t92_l_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="legs" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="715" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="7620" />
+		<set name="price" val="14300000" />
+		<for>
+			<add order="0x10" stat="pDef" val="128" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9313" type="Armor" name="Dynasty Leather Armor Bow master - Light">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t92_g_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="LIGHT" />
+		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="448" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="3260" />
+		<set name="price" val="8960000" />
+		<for>
+			<add order="0x10" stat="pDef" val="74" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9314" type="Armor" name="Dynasty Leather Boots - Light">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t92_b_i00" />
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="540" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="74" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>			
+	<item id="9315" type="Armor" name="Dynasty Tunic - Robe">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t93_u_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="236" />
+			<add order="0x40" stat="maxMp" val="966" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9316" type="Armor" name="Dynasty Tunic healer - Robe">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t93_uh_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="236" />
+			<add order="0x40" stat="maxMp" val="1100" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9317" type="Armor" name="Dynasty Tunic  enchanter- Robe">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t93_ue_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="136" />
+			<add order="0x40" stat="maxMp" val="1100" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9318" type="Armor" name="Dynasty Tunic  summoner - Robe">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t93_us_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="236" />
+			<add order="0x40" stat="maxMp" val="1100" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9319" type="Armor" name="Dynasty Tunic  wizard - Robe">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t93_uw_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="chest" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="268" />
+		<set name="material" val="BONE" />
+		<set name="weight" val="550" />
+		<set name="price" val="5370000" />
+		<for>
+			<add order="0x10" stat="pDef" val="236" />
+			<add order="0x40" stat="maxMp" val="1100" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9320" type="Armor" name="Dynasty Stockings - Robe">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t93_l_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="MAGIC" />
+		<set name="bodypart" val="legs" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="715" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="7620" />
+		<set name="price" val="14300000" />
+		<for>
+			<add order="0x10" stat="pDef" val="85" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9321" type="Armor" name="Dynasty Gloves - Robe">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t93_g_i00" />
+		<set name="default_action" val="equip" />
+		<set name="armor_type" val="HEAVY" />
+		<set name="bodypart" val="gloves" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="448" />
+		<set name="material" val="SCALE_OF_DRAGON" />
+		<set name="weight" val="3260" />
+		<set name="price" val="8960000" />
+		<for>
+			<add order="0x10" stat="pDef" val="74" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+	<item id="9322" type="Armor" name="Dynasty Shoes - Robe">
+		<set name="icon" val="SHEV_Dynasty_00.Icon.armor_t93_b_i00" />
+		<set name="default_action" val="equip" />
+		<set name="bodypart" val="feet" />
+		<set name="crystal_type" val="S" />
+		<set name="crystal_count" val="179" />
+		<set name="material" val="LEATHER" />
+		<set name="weight" val="540" />
+		<set name="price" val="3580000" />
+		<for>
+			<add order="0x10" stat="pDef" val="74" />
+			<enchant order="0x0C" stat="pDef" val="0" />
+		</for>
+	</item>
+</list>

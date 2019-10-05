@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<skill id="7077" levels="1" name="Dynasty Heavy">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<mul order="0x30" stat="pDef" val="1.20"/> <!-- P Def. +20% -->
+			<add order="0x40" stat="maxHp" val="845"/> <!-- Maximum HP +845 -->
+			<addMul order="0x40" stat="sleepVuln" val="70" /> <!-- Sleep Probability -70% -->
+			<addMul order="0x40" stat="rootVuln" val="70" /> <!-- Hold Probability -70% -->
+			<sub order="0x40" stat="DEX" val="2"/> <!-- DEX -2 -->
+			<add order="0x40" stat="STR" val="2"/> <!-- STR +2 -->
+		</for>
+	</skill>
+	<skill id="7078" levels="1" name="Dynasty Light">
+		<set name="target" val="TARGET_SELF" />
+		<set name="skillType" val="BUFF" />
+		<set name="operateType" val="OP_PASSIVE" />
+		<for>
+			<mul order="0x30" stat="pAtkSpd" val="1.12"/> <!-- Attack Speed +8% -->
+			<mul order="0x30" stat="pAtk" val="1.12"/> <!-- P. Atk +8% -->
+			<add order="0x40" stat="maxMp" val="320"/> <!-- Maximum MP +320 -->
+			<add order="0x40" stat="maxLoad" val="5859"/> <!-- Weight Limit +5859 -->
+			<add order="0x40" stat="DEX" val="1"/> <!-- DEX +1 -->
+			<add order="0x40" stat="STR" val="1"/> <!-- STR +1 -->
+			<sub order="0x40" stat="CON" val="2"/> <!-- CON -2 -->
+		</for>
+	</skill>
+	<skill id="7079" levels="1" name="Dynasty Robe">
+		<set name="target" val="TARGET_SELF" />
+		<set name="skillType" val="BUFF" />
+		<set name="operateType" val="OP_PASSIVE" />
+		<for>
+			<mul order="0x30" stat="mAtk" val="1.23"/> <!-- M. Atk +23% -->
+			<add order="0x40" stat="runSpd" val="10"/> <!-- Movement Speed +9 -->
+			<sub order="0x40" stat="cancel" val="45"/> <!-- Casting Cancel Probability -45% -->
+			<add order="0x40" stat="maxLoad" val="5859"/> <!-- Weight Limit +5859 -->
+			<add order="0x40" stat="WIT" val="1"/> <!-- WIT +1 -->
+			<add order="0x40" stat="INT" val="1"/> <!-- INT +1 -->
+			<sub order="0x40" stat="MEN" val="2"/> <!-- MEN -2 -->
+			<addMul order="0x40" stat="stunVuln" val="55" /> <!-- Stun resistance +55% -->
+		</for>
+	</skill>
+	<skill id="7092" levels="1" name="Equipped with Shield">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="poisonVuln" val="85" />
+			<addMul order="0x40" stat="bleedVuln" val="85" />
+		</for>
+	</skill>
+	<skill id="7093" levels="1" name="Enchant Heavy Dynasty">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<add order="0x40" stat="pDef" val="68"/>
+			<add order="0x40" stat="regMp" val="2"/> 
+		</for>
+	</skill>
+	<skill id="7094" levels="1" name="Enchant Light Dynasty">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<add order="0x40" stat="rEvas" val="2"/>
+			<add order="0x40" stat="mDef" val="40"/>
+		</for>
+	</skill>
+	<skill id="7095" levels="1" name="Enchant Robe Dynasty">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<add order="0x40" stat="pDef" val="44"/>
+			<mul order="0x30" stat="maxLoad" val="1.3"/>
+		</for>
+	</skill>
+	<skill id="7096" levels="1" name="Equipped with Shield">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="poisonVuln" val="65" />
+			<addMul order="0x40" stat="bleedVuln" val="65" />
+		</for>
+	</skill>
+</list>

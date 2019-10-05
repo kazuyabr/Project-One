@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<list>
+	<skill id="7100" levels="1" name="Capture">
+		<set name="mpInitialConsume" val="50" />
+		<set name="target" val="TARGET_ONE" />
+		<set name="reuseDelay" val="10000" />
+		<set name="hitTime" val="5000" />
+		<set name="staticReuse" val="true" />
+		<set name="staticHitTime" val="true" />
+		<set name="skillType" val="CAPTURE" />
+		<set name="operateType" val="OP_ACTIVE" />
+		<set name="castRange" val="85" />
+		<set name="effectRange" val="400" />
+	</skill>
+</list>

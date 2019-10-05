@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- S-Grade Armors -->
+
+<list>
+
+  <!-- Draconic Leather Helmet -->
+  <item id="1">
+    <ingredient id="57" count="5000000"/>
+    <production id="6382" count="1"/>
+  </item>
+
+  <!-- Draconic Leather Armor -->
+  <item id="2">
+    <ingredient id="57" count="10000000"/>
+    <production id="6379" count="1"/>
+  </item>
+
+  <!-- Draconic Leather Gloves -->
+  <item id="3">
+    <ingredient id="57" count="5000000"/>
+    <production id="6380" count="1"/>
+  </item>
+
+  <!-- Draconic Leather Boots -->
+  <item id="4">
+    <ingredient id="57" count="5000000"/>
+    <production id="6381" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+  <!-- Imperial Crusader Helmet -->
+  <item id="5">
+    <ingredient id="57" count="5000000"/>
+    <production id="6378" count="1"/>
+  </item>
+
+  <!-- Imperial Crusader Breastplate -->
+  <item id="6">
+    <ingredient id="57" count="10000000"/>
+    <production id="6373" count="1"/>
+  </item>
+
+  <!-- Imperial Crusader Gauntlets -->
+  <item id="7">
+    <ingredient id="57" count="5000000"/>
+    <production id="6375" count="1"/>
+  </item>
+
+  <!-- Imperial Crusader Gaiters -->
+  <item id="8">
+    <ingredient id="57" count="5000000"/>
+    <production id="6374" count="1"/>
+  </item>
+
+  <!-- Imperial Crusader Boots -->
+  <item id="9">
+    <ingredient id="57" count="5000000"/>
+    <production id="6376" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+  <!-- Major Arcana Helmet -->
+  <item id="10">
+    <ingredient id="57" count="5000000"/>
+    <production id="6386" count="1"/>
+  </item>
+
+  <!-- Major Arcana Armor -->
+  <item id="11">
+    <ingredient id="57" count="10000000"/>
+    <production id="6383" count="1"/>
+  </item>
+
+  <!-- Major Arcana Gloves -->
+  <item id="12">
+    <ingredient id="57" count="5000000"/>
+    <production id="6384" count="1"/>
+  </item>
+  
+  <!-- Major Arcana Boots -->
+  <item id="13">
+    <ingredient id="57" count="5000000"/>
+    <production id="6385" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+   <!-- Titanium Helmet -->
+  <item id="14">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9218" count="1"/>
+  </item>
+
+  <!-- Titanium Leather Armor -->
+  <item id="15">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9219" count="1"/>
+  </item>
+
+  <!-- Titanium Leather Gloves -->
+  <item id="16">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9220" count="1"/>
+  </item>
+
+  <!-- Titanium Leather Boots -->
+  <item id="17">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9221" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+   <!-- Titanium Helmet -->
+  <item id="14">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9218" count="1"/>
+  </item>
+
+  <!-- Titanium Heavy Armor -->
+  <item id="18">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9222" count="1"/>
+  </item>
+
+  <!-- Titanium Heavy Gloves -->
+  <item id="19">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9223" count="1"/>
+  </item>
+
+  <!-- Titanium Heavy Boots -->
+  <item id="20">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9224" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+   <!-- Titanium Helmet -->
+  <item id="14">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9218" count="1"/>
+  </item>
+
+  <!-- Titanium Robe Armor -->
+  <item id="21">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9225" count="1"/>
+  </item>
+
+  <!-- Titanium Robe gloves -->
+  <item id="22">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9226" count="1"/>
+  </item>
+
+  <!-- Titanium Robe Boots -->
+  <item id="23">
+    <ingredient id="9210" count="1200"/>
+	<ingredient id="9211" count="1200"/>
+	<ingredient id="9212" count="1200"/>
+	<ingredient id="9213" count="1200"/>
+	<ingredient id="9214" count="1200"/>
+	<ingredient id="9215" count="1200"/>
+	<ingredient id="9216" count="1200"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9227" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+   <!-- Dynasty Helmet -->
+  <item id="24">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9300" count="1"/>
+  </item>
+
+  <!-- Dynasty Leather Armor -->
+  <item id="25">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9309" count="1"/>
+  </item>
+
+  <!-- Dynasty Leather Leggings -->
+  <item id="26">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9312" count="1"/>
+  </item>
+
+  <!-- Dynasty Leather Gloves -->
+  <item id="27">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9313" count="1"/>
+  </item>
+
+  <!-- Dynasty Leather Boots -->
+  <item id="28">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9314" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+   <!-- Dynasty Helmet -->
+  <item id="24">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9300" count="1"/>
+  </item>
+
+  <!-- Dynasty Heavy Armor -->
+  <item id="29">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9301" count="1"/>
+  </item>
+
+  <!-- Dynasty Heavy Gaiters -->
+  <item id="30">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9307" count="1"/>
+  </item>
+
+  <!-- Dynasty Heavy Gauntlet -->
+  <item id="31">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9306" count="1"/>
+  </item>
+
+  <!-- Dynasty Heavy Boots -->
+  <item id="32">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9308" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+   <!-- Dynasty Helmet -->
+  <item id="24">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9300" count="1"/>
+  </item>
+
+  <!-- Dynasty Robe Armor -->
+  <item id="33">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9316" count="1"/>
+  </item>
+
+  <!-- Dynasty Robe Stockings -->
+  <item id="34">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9320" count="1"/>
+  </item>
+
+  <!-- Dynasty Gloves	Robe -->
+  <item id="35">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9321" count="1"/>
+  </item>
+
+  <!-- Dynasty Robe Boots -->
+  <item id="36">
+    <ingredient id="9210" count="3500"/>
+	<ingredient id="9211" count="3500"/>
+	<ingredient id="9212" count="3500"/>
+	<ingredient id="9213" count="3500"/>
+	<ingredient id="9214" count="3500"/>
+	<ingredient id="9215" count="3500"/>
+	<ingredient id="9216" count="3500"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9322" count="1"/>
+  </item>
+
+  <item id="41">
+    <ingredient id="3888" count="1"/>
+    <production id="3888" count="1"/>
+  </item>
+
+  <!-- Dynasty Shield -->
+  <item id="37">
+    <ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+    <production id="9331" count="1"/>
+  </item>
+  
+  <!-- Dynasty Shield Sigil -->
+  <item id="38">
+    <ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+    <production id="9332" count="1"/>
+  </item>
+  
+  <!-- Titanium Shield -->
+  <item id="39">
+    <ingredient id="9210" count="500"/>
+	<ingredient id="9211" count="500"/>
+	<ingredient id="9212" count="500"/>
+	<ingredient id="9213" count="500"/>
+	<ingredient id="9214" count="500"/>
+	<ingredient id="9215" count="500"/>
+	<ingredient id="9216" count="500"/>
+    <production id="9228" count="1"/>
+  </item>
+  
+  <!-- Imperial Crusader Shield -->
+  <item id="40">
+    <ingredient id="57" count="5000000"/>
+    <production id="6377" count="1"/>
+  </item>
+
+</list>

@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+	<npc id="50001" idTemplate="25322" name="Tom" title="Trade">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="66"/>
+		<set name="radius" val="9"/>
+		<set name="height" val="31.5"/>
+		<set name="rHand" val="6723"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="Merchant"/>
+		<set name="exp" val="1838232"/>
+		<set name="sp" val="828036"/>
+		<set name="hp" val="350517.310357172"/>
+		<set name="mp" val="1219.8"/>
+		<set name="hpRegen" val="112.374447843527"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="1885.06250586742"/>
+		<set name="pDef" val="830.18256"/>
+		<set name="mAtk" val="624.886061285576"/>
+		<set name="mDef" val="405"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="60"/>
+		<set name="int" val="76"/>
+		<set name="dex" val="73"/>
+		<set name="wit" val="70"/>
+		<set name="con" val="57"/>
+		<set name="men" val="80"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="43"/>
+		<set name="runSpd" val="190"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+	</npc>
+	<npc id="50002" idTemplate="25323" name="Tina" title="Trade">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="65"/>
+		<set name="radius" val="5.5"/>
+		<set name="height" val="28"/>
+		<set name="rHand" val="99"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="Merchant"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="1884"/>
+		<set name="hp" val="36887.5737958898"/>
+		<set name="mp" val="1188.8"/>
+		<set name="hpRegen" val="110.823040573561"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="4841.23256010037"/>
+		<set name="pDef" val="407.835495"/>
+		<set name="mAtk" val="4311.34525530238"/>
+		<set name="mDef" val="397.92"/>
+		<set name="crit" val="1"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="46"/>
+		<set name="runSpd" val="190"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="MAGE" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+	</npc>
+	<npc id="50003" idTemplate="30839" name="Keh" title="Auction">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="70"/>
+		<set name="radius" val="7"/>
+		<set name="height" val="23"/>
+		<set name="rHand" val="0"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="AuctionManager"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="0"/>
+		<set name="hp" val="2444.46819"/>
+		<set name="mp" val="1345.8"/>
+		<set name="hpRegen" val="7.5"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="688.86373"/>
+		<set name="pDef" val="295.91597"/>
+		<set name="mAtk" val="470.40463"/>
+		<set name="mDef" val="216.53847"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="50"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+	</npc>
+	<npc id="50004" idTemplate="31294" name="Arold" title="Raid Boss Info Manager">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="80"/>
+		<set name="radius" val="8"/>
+		<set name="height" val="23.5"/>
+		<set name="rHand" val="94"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="RaidBosInfo"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="0"/>
+		<set name="hp" val="3290.11306877694"/>
+		<set name="mp" val="1674.8"/>
+		<set name="hpRegen" val="8.5"/>
+		<set name="mpRegen" val="3"/>
+		<set name="pAtk" val="970.537548504614"/>
+		<set name="pDef" val="341.375"/>
+		<set name="mAtk" val="662.751329129412"/>
+		<set name="mDef" val="249.80341"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="50"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<set name="attackRange" val="40"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="1000" canMove="true" seedable="false"/>
+		<skills>
+			<skill id="4045" level="1"/>
+			<skill id="4416" level="14"/>
+		</skills>
+	</npc>
+	<npc id="50005" idTemplate="31334" name="Helena" title="Global Gatekeeper">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="70"/>
+		<set name="radius" val="8"/>
+		<set name="height" val="24"/>
+		<set name="rHand" val="0"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="Gatekeeper"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="0"/>
+		<set name="hp" val="2444.46819"/>
+		<set name="mp" val="1345.8"/>
+		<set name="hpRegen" val="7.5"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="688.86373"/>
+		<set name="pDef" val="295.91597"/>
+		<set name="mAtk" val="470.40463"/>
+		<set name="mDef" val="216.53847"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="50"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+	</npc>
+	<npc id="50006" idTemplate="31228" name="Roy the Cat" title="Class Manager">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="70"/>
+		<set name="radius" val="9"/>
+		<set name="height" val="16"/>
+		<set name="rHand" val="0"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="ClassMaster"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="10"/>
+		<set name="hp" val="2444.46819"/>
+		<set name="mp" val="1345.8"/>
+		<set name="hpRegen" val="7.5"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="688.86373"/>
+		<set name="pDef" val="295.91597"/>
+		<set name="mAtk" val="470.40463"/>
+		<set name="mDef" val="216.53847"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="80"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+	</npc>
+	<npc id="50007" idTemplate="31324" name="Andromeda" title="Wedding Manager">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="70"/>
+		<set name="radius" val="8"/>
+		<set name="height" val="23"/>
+		<set name="rHand" val="316"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="WeddingManagerNpc"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="0"/>
+		<set name="hp" val="2444.46819"/>
+		<set name="mp" val="1345.8"/>
+		<set name="hpRegen" val="7.5"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="688.86373"/>
+		<set name="pDef" val="295.91597"/>
+		<set name="mAtk" val="470.40463"/>
+		<set name="mDef" val="216.53847"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="50"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+	</npc>
+	<npc id="50008" idTemplate="31760" name="Cat Ray" title="Crappy Buffer">
+		<set name="usingServerSideName" val="true"/>
+		<set name="usingServerSideTitle" val="true"/>
+		<set name="level" val="70"/>
+		<set name="radius" val="8"/>
+		<set name="height" val="15"/>
+		<set name="rHand" val="0"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="SchemeBuffer"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="0"/>
+		<set name="hp" val="2444.46819"/>
+		<set name="mp" val="1345.8"/>
+		<set name="hpRegen" val="7.5"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="688.86373"/>
+		<set name="pDef" val="295.91597"/>
+		<set name="mAtk" val="470.40463"/>
+		<set name="mDef" val="216.53847"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="26"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false"/>
+		<skills>
+			<skill id="4045" level="1"/>
+			<skill id="4416" level="7"/>
+		</skills>
+	</npc>
+	<npc id="50009" idTemplate="31280" name="KingPvP" title="Top PvP Monument">
+		<set name="usingServerSideName" val="true" />
+		<set name="usingServerSideTitle" val="true" />
+		<set name="level" val="70" />
+		<set name="radius" val="8" />
+		<set name="height" val="23" />
+		<set name="rHand" val="0" />
+		<set name="lHand" val="0" />
+		<set name="type" val="TopPvPMonument" />
+		<set name="exp" val="0" />
+		<set name="sp" val="0" />
+		<set name="hp" val="2444.46819" />
+		<set name="mp" val="1345.8" />
+		<set name="hpRegen" val="7.5" />
+		<set name="mpRegen" val="2.7" />
+		<set name="pAtk" val="688.86373" />
+		<set name="pDef" val="295.91597" />
+		<set name="mAtk" val="470.40463" />
+		<set name="mDef" val="216.53847" />
+		<set name="crit" val="4" />
+		<set name="atkSpd" val="253" />
+		<set name="str" val="40" />
+		<set name="int" val="21" />
+		<set name="dex" val="30" />
+		<set name="wit" val="20" />
+		<set name="con" val="43" />
+		<set name="men" val="20" />
+		<set name="corpseTime" val="7" />
+		<set name="walkSpd" val="50" />
+		<set name="runSpd" val="120" />
+		<set name="dropHerbGroup" val="0" />
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false" />
+	</npc>
+	<npc id="50010" idTemplate="31280" name="KingPk" title="Top PK Monument">
+		<set name="usingServerSideName" val="true" />
+		<set name="usingServerSideTitle" val="true" />
+		<set name="level" val="70" />
+		<set name="radius" val="8" />
+		<set name="height" val="23" />
+		<set name="rHand" val="0" />
+		<set name="lHand" val="0" />
+		<set name="type" val="TopPKMonument" />
+		<set name="exp" val="0" />
+		<set name="sp" val="0" />
+		<set name="hp" val="2444.46819" />
+		<set name="mp" val="1345.8" />
+		<set name="hpRegen" val="7.5" />
+		<set name="mpRegen" val="2.7" />
+		<set name="pAtk" val="688.86373" />
+		<set name="pDef" val="295.91597" />
+		<set name="mAtk" val="470.40463" />
+		<set name="mDef" val="216.53847" />
+		<set name="crit" val="4" />
+		<set name="atkSpd" val="253" />
+		<set name="str" val="40" />
+		<set name="int" val="21" />
+		<set name="dex" val="30" />
+		<set name="wit" val="20" />
+		<set name="con" val="43" />
+		<set name="men" val="20" />
+		<set name="corpseTime" val="7" />
+		<set name="walkSpd" val="50" />
+		<set name="runSpd" val="120" />
+		<set name="dropHerbGroup" val="0" />
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="true" seedable="false" />
+	</npc>
+	<npc id="50011" idTemplate="35322" name="Event" title="TvT Manager">
+		<set name="usingServerSideName" val="true" />
+		<set name="usingServerSideTitle" val="true" />
+		<set name="level" val="20"/>
+		<set name="radius" val="34"/>
+		<set name="height" val="65"/>
+		<set name="rHand" val="0"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="TvTManager"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="10"/>
+		<set name="hp" val="342.5127"/>
+		<set name="mp" val="192"/>
+		<set name="hpRegen" val="2.5"/>
+		<set name="mpRegen" val="1.2"/>
+		<set name="pAtk" val="44.32863"/>
+		<set name="pDef" val="86.87049"/>
+		<set name="mAtk" val="30.2707"/>
+		<set name="mDef" val="63.56806"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="50"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="false" seedable="false"/>
+	</npc>
+	<npc id="50012" idTemplate="35322" name="Angela" title="Donate Manager">
+		<set name="usingServerSideName" val="true" />
+		<set name="usingServerSideTitle" val="true" />
+		<set name="level" val="70"/>
+		<set name="radius" val="8"/>
+		<set name="height" val="20.5"/>
+		<set name="rHand" val="0"/>
+		<set name="lHand" val="0"/>
+		<set name="type" val="DonateManager"/>
+		<set name="exp" val="0"/>
+		<set name="sp" val="0"/>
+		<set name="hp" val="2444.46819"/>
+		<set name="mp" val="1345.8"/>
+		<set name="hpRegen" val="7.5"/>
+		<set name="mpRegen" val="2.7"/>
+		<set name="pAtk" val="688.86373"/>
+		<set name="pDef" val="295.91597"/>
+		<set name="mAtk" val="470.40463"/>
+		<set name="mDef" val="216.53847"/>
+		<set name="crit" val="4"/>
+		<set name="atkSpd" val="253"/>
+		<set name="str" val="40"/>
+		<set name="int" val="21"/>
+		<set name="dex" val="30"/>
+		<set name="wit" val="20"/>
+		<set name="con" val="43"/>
+		<set name="men" val="20"/>
+		<set name="corpseTime" val="7"/>
+		<set name="walkSpd" val="50"/>
+		<set name="runSpd" val="120"/>
+		<set name="dropHerbGroup" val="0"/>
+		<set name="attackRange" val="40"/>
+		<ai type="DEFAULT" ssCount="0" ssRate="0" spsCount="0" spsRate="0" aggro="0" canMove="false" seedable="false"/>
+	</npc>
+</list>

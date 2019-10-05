@@ -1,0 +1,507 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!-- S-Grade Weapons -->
+
+<list>
+  <!-- Heaven's Divider -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6364" count="1"/>
+  </item>
+
+  <!-- Heaven's Divider -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6365" count="1"/>
+  </item>
+
+  <!-- Heaven's Divider -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6366" count="1"/>
+  </item>
+
+  <!-- Forgotten Blade -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6367" count="1"/>
+  </item>
+
+  <!-- Forgotten Blade -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6368" count="1"/>
+  </item>
+
+  <!-- Forgotten Blade -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6369" count="1"/>
+  </item>
+
+  <!-- Arcana Mace -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6370" count="1"/>
+  </item>
+
+  <!-- Arcana Mace -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6371" count="1"/>
+  </item>
+
+  <!-- Arcana Mace -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6372" count="1"/>
+  </item>
+
+  <!-- Basalt Battlehammer -->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="6579" count="1"/>
+  </item>
+
+  <!-- Draconic Bow-->
+  <item>
+    <ingredient id="57" count="200000000"/>
+    <production id="7575" count="1"/>
+  </item>
+  
+  <!-- Sirra's Blade Edge -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+	<production id="8678" count="1"/>
+  </item>
+
+  <!-- Sword of Ipos -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8679" count="1"/>
+  </item>
+
+  <!-- Barakiel's Axe -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8680" count="1"/>
+  </item>
+
+  <!-- Behemoth's Tuning Fork -->
+  <item >
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8681" count="1"/>
+  </item>
+
+  <!-- Naga Storm -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8682" count="1"/>
+  </item>
+
+  <!-- Tiphon's Spear -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8683" count="1"/>
+  </item>
+
+ <!-- Shyeed's Bow -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8684" count="1"/>
+  </item>
+
+  <!-- Sobekk's Hurricane -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8685" count="1"/>
+  </item>
+
+  <!-- Themis' Tongue -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8686" count="1"/>
+  </item>
+
+  <!-- Cabrio's Hand -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8687" count="1"/>
+  </item>
+
+  <!-- Daimon Crystal -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="8688" count="1"/>
+  </item>
+  
+  <!-- Dynasty Rapier-->
+  <item>
+    <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9323" count="1"/>
+  </item>
+
+  <!-- Dynasty Rapier -->
+  <item>
+    <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9327" count="1"/>
+  </item>
+
+  <!-- Dynasty Blade -->
+  <item>
+    <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9333" count="1"/>
+  </item>
+
+  <!-- Dynasty Two Handed Sword -->
+  <item>
+    <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9337" count="1"/>
+  </item>
+
+  <!-- Dynasty Magic Sword -->
+  <item>
+    <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9341" count="1"/>
+  </item>
+
+  <!-- Dynasty Bow -->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9345" count="1"/>
+  </item>
+
+  <!-- Dynasty Dagger -->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9349" count="1"/>
+  </item>
+
+  <!-- Dynasty Spear -->
+  <item>
+    <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9353" count="1"/>
+  </item>
+
+  <!-- Dynasty Hammer -->
+  <item>
+    <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9357" count="1"/>
+  </item>
+
+  <!-- Dynasty Staff -->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9361" count="1"/>
+  </item>
+
+  <!-- Dynasty Fist -->
+  <item>
+    <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9365" count="1"/>
+  </item>
+
+  <!-- Dynasty Two Handed Staff -->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	<ingredient id="9211" count="3000"/>
+	<ingredient id="9212" count="3000"/>
+	<ingredient id="9213" count="3000"/>
+	<ingredient id="9214" count="3000"/>
+	<ingredient id="9215" count="3000"/>
+	<ingredient id="9216" count="3000"/>
+	<ingredient id="9209" count="3"/>
+    <production id="9369" count="1"/>
+  </item>
+  
+  <!-- Dual Sword -->
+  <item>
+    <ingredient id="57" count="1500000000"/>
+    <production id="6580" count="1"/>
+  </item>
+  
+  <!-- Dual Dragon Slayer -->
+  <item>
+	<ingredient id="9210" count="1000"/>
+	<ingredient id="9211" count="1000"/>
+	<ingredient id="9212" count="1000"/>
+	<ingredient id="9213" count="1000"/>
+	<ingredient id="9214" count="1000"/>
+	<ingredient id="9215" count="1000"/>
+	<ingredient id="9216" count="1000"/>
+	<ingredient id="9209" count="1"/>
+    <production id="9237" count="1"/>
+  </item>
+  
+  <!-- Dual Pain of Godness-->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	 <ingredient id="9211" count="3000"/>
+	 <ingredient id="9212" count="3000"/>
+	 <ingredient id="9213" count="3000"/>
+	 <ingredient id="9214" count="3000"/>
+	 <ingredient id="9215" count="3000"/>
+	 <ingredient id="9216" count="3000"/>
+	 <ingredient id="9209" count="3"/>
+     <production id="9238" count="1"/>
+  </item>
+  
+  <!-- Dual Death Bringer-->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	 <ingredient id="9211" count="3000"/>
+	 <ingredient id="9212" count="3000"/>
+	 <ingredient id="9213" count="3000"/>
+	 <ingredient id="9214" count="3000"/>
+	 <ingredient id="9215" count="3000"/>
+	 <ingredient id="9216" count="3000"/>
+	 <ingredient id="9209" count="3"/>
+     <production id="9239" count="1"/>
+  </item>
+  
+  <!-- Dual Dismantler-->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	 <ingredient id="9211" count="3000"/>
+	 <ingredient id="9212" count="3000"/>
+	 <ingredient id="9213" count="3000"/>
+	 <ingredient id="9214" count="3000"/>
+	 <ingredient id="9215" count="3000"/>
+	 <ingredient id="9216" count="3000"/>
+	 <ingredient id="9209" count="3"/>
+     <production id="9238" count="1"/>
+  </item>
+  
+  <!-- Dual Gram -->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	 <ingredient id="9211" count="3000"/>
+	 <ingredient id="9212" count="3000"/>
+	 <ingredient id="9213" count="3000"/>
+	 <ingredient id="9214" count="3000"/>
+	 <ingredient id="9215" count="3000"/>
+	 <ingredient id="9216" count="3000"/>
+	 <ingredient id="9209" count="3"/>
+     <production id="9238" count="1"/>
+  </item>
+  
+  <!-- Dual Invincible Blade-->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	 <ingredient id="9211" count="3000"/>
+	 <ingredient id="9212" count="3000"/>
+	 <ingredient id="9213" count="3000"/>
+	 <ingredient id="9214" count="3000"/>
+	 <ingredient id="9215" count="3000"/>
+	 <ingredient id="9216" count="3000"/>
+	 <ingredient id="9209" count="3"/>
+     <production id="9238" count="1"/>
+  </item>
+  
+  <!-- Dual Tulwar-->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	 <ingredient id="9211" count="3000"/>
+	 <ingredient id="9212" count="3000"/>
+	 <ingredient id="9213" count="3000"/>
+	 <ingredient id="9214" count="3000"/>
+	 <ingredient id="9215" count="3000"/>
+	 <ingredient id="9216" count="3000"/>
+	 <ingredient id="9209" count="3"/>
+     <production id="9238" count="1"/>
+  </item>
+  
+  <!-- Dual Nameless Victory-->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	 <ingredient id="9211" count="3000"/>
+	 <ingredient id="9212" count="3000"/>
+	 <ingredient id="9213" count="3000"/>
+	 <ingredient id="9214" count="3000"/>
+	 <ingredient id="9215" count="3000"/>
+	 <ingredient id="9216" count="3000"/>
+	 <ingredient id="9209" count="3"/>
+     <production id="9238" count="1"/>
+  </item>
+  
+  <!-- Dual Schlaeger-->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	 <ingredient id="9211" count="3000"/>
+	 <ingredient id="9212" count="3000"/>
+	 <ingredient id="9213" count="3000"/>
+	 <ingredient id="9214" count="3000"/>
+	 <ingredient id="9215" count="3000"/>
+	 <ingredient id="9216" count="3000"/>
+	 <ingredient id="9209" count="3"/>
+     <production id="9238" count="1"/>
+  </item>
+  
+  <!-- Dual Limpid Sword-->
+  <item>
+     <ingredient id="9210" count="3000"/>
+	 <ingredient id="9211" count="3000"/>
+	 <ingredient id="9212" count="3000"/>
+	 <ingredient id="9213" count="3000"/>
+	 <ingredient id="9214" count="3000"/>
+	 <ingredient id="9215" count="3000"/>
+	 <ingredient id="9216" count="3000"/>
+	 <ingredient id="9209" count="3"/>
+     <production id="9238" count="1"/>
+  </item>
+  
+</list>
