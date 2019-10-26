@@ -47,7 +47,7 @@ public final class VipTaskManager implements Runnable
 			// Get player.
 			final Player player = entry.getKey();
 			
-			if (player.getMemos().getLong("vipEndTime") < System.currentTimeMillis())
+			if (player.getMemos().getLong("vipTime") < System.currentTimeMillis())
 			{
 				player.setVip(false);
 				remove(player);

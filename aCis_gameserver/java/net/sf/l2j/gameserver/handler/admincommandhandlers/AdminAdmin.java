@@ -16,7 +16,6 @@ import net.sf.l2j.gameserver.data.xml.AnnouncementData;
 import net.sf.l2j.gameserver.data.xml.DoorData;
 import net.sf.l2j.gameserver.data.xml.PolymorphData;
 import net.sf.l2j.gameserver.data.xml.PvPData;
-import net.sf.l2j.gameserver.data.xml.SpreeKillsData;
 import net.sf.l2j.gameserver.data.xml.MultisellData;
 import net.sf.l2j.gameserver.data.xml.NpcData;
 import net.sf.l2j.gameserver.data.xml.TeleportLocationData;
@@ -240,11 +239,6 @@ public class AdminAdmin implements IAdminCommandHandler
 						PvPData.getInstance().reload();
 						activeChar.sendMessage("PvPData have been reloaded.");
 					}
-					else if (type.startsWith("spreekills"))
-					{
-						SpreeKillsData.getInstance().reload();
-						activeChar.sendMessage("SpreeKills have been reloaded.");
-					}
 					else if (type.startsWith("zone"))
 					{
 						ZoneManager.getInstance().reload();
@@ -254,7 +248,7 @@ public class AdminAdmin implements IAdminCommandHandler
 					{
 						activeChar.sendMessage("Usage : //reload <admin|announcement|config|crest|cw>");
 						activeChar.sendMessage("Usage : //reload <door|poly|htm|item|multisell|npc>");
-						activeChar.sendMessage("Usage : //reload <npcwalker|skill|spreekills|teleport|pvpdata|zone>");
+						activeChar.sendMessage("Usage : //reload <npcwalker|skill|teleport|pvpdata|zone>");
 					}
 				}
 				while (st.hasMoreTokens());
@@ -263,7 +257,7 @@ public class AdminAdmin implements IAdminCommandHandler
 			{
 				activeChar.sendMessage("Usage : //reload <admin|announcement|config|crest|cw>");
 				activeChar.sendMessage("Usage : //reload <door|poly|htm|item|multisell|npc>");
-				activeChar.sendMessage("Usage : //reload <npcwalker|skill|spreekills|teleport|pvpdata|zone>");
+				activeChar.sendMessage("Usage : //reload <npcwalker|skill|teleport|pvpdata|zone>");
 			}
 		}
 		return true;

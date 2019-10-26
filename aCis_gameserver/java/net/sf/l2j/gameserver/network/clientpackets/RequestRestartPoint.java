@@ -33,6 +33,8 @@ public final class RequestRestartPoint extends L2GameClientPacket
 		final Player player = getClient().getPlayer();
 		if (player == null)
 			return;
+
+		player.updateLastAction();
 		
 		if (player.isFakeDeath())
 		{

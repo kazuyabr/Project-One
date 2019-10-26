@@ -1,0 +1,15 @@
+<html><title>Bug Report Manager</title>"
+<body><br><br><center>
+<table border=0 height=10 bgcolor="000000" width=240>"
+<tr><td align=center><font color="00FFFF">Olá %player%</font></td></tr>
+<tr><td align=center><font color="00FFFF">Oque voce deseja reportar?</font></td></tr>
+</table><br>
+<img src="L2UI.SquareWhite" width=280 height=1><br><br>
+<table width=250><tr>
+<td><font color="LEVEL">Selecione o tipo:</font></td>
+<td><combobox width=105 var=type list=Armaduras;Boss;Skills;Quests;Other></td>
+</tr></table><br><br>
+<multiedit var="msg" width=250 height=50><br>
+<br><img src="L2UI.SquareWhite" width=280 height=1><br><br><br><br><br><br><br>
+<button value="Send Report" action="bypass -h npc_%objectId%_send_report $type $msg" width=204 height=20 back="sek.cbui75" fore="sek.cbui75">"
+</center></body></html>

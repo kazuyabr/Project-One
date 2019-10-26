@@ -1175,7 +1175,7 @@ public class Monster extends Attackable
 			}
 		}
 		
-		if ((Config.GLOBAL_DROP))
+		if (Config.GLOBAL_DROP)
 		{		
 			for (Entry<Integer, List<Integer>> entry : Config.DROP_LIST.entrySet())
 			{

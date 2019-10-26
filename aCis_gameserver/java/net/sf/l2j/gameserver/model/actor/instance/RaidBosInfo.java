@@ -17,6 +17,7 @@ import net.sf.l2j.gameserver.data.xml.NpcData;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 import net.sf.l2j.gameserver.model.item.DropData;
+import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
@@ -206,7 +207,9 @@ public class RaidBosInfo extends Folk
 		
 		for (int itemId : drops)
 		{
-			String itemName = ItemTable.getInstance().getTemplate(itemId).getName();
+			Item item = ItemTable.getInstance().getTemplate(itemId);
+			String itemName = item.getName();
+			
 			if (itemName.length() > 47)
 				itemName = itemName.substring(0, 47) + "...";
 			

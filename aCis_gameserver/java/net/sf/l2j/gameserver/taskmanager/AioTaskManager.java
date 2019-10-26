@@ -41,7 +41,7 @@ public class AioTaskManager implements Runnable
 		{
 			final Player player = entry.getKey();
 			
-			if (player.getMemos().getLong("aioEndTime") < System.currentTimeMillis())
+			if (player.getMemos().getLong("aioTime") < System.currentTimeMillis())
 			{
 				player.setAio(false);
 				remove(player);

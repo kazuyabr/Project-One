@@ -16,6 +16,12 @@ public class ChatClan implements IChatHandler
 	{
 		if (activeChar.getClan() == null)
 			return;
+
+		if (!activeChar.getClan().getWatchers().isEmpty())
+		{
+			for (Player watcher : activeChar.getClan().getWatchers())
+				watcher.sendPacket(new CreatureSay(activeChar.getObjectId(), type, " [Clan: " + activeChar.getClan().getName() + "] " + activeChar.getName(), text));
+		}
 		
 		activeChar.getClan().broadcastToOnlineMembers(new CreatureSay(activeChar.getObjectId(), type, activeChar.getName(), text));
 	}

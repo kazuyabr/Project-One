@@ -48,10 +48,7 @@ public class Olympiad
 	private static final String OLYMPIAD_UPDATE_NOBLES = "UPDATE olympiad_nobles SET olympiad_points = ?, competitions_done = ?, competitions_won = ?, competitions_lost = ?, competitions_drawn = ? WHERE char_id = ?";
 	private static final String OLYMPIAD_GET_HEROS = "SELECT olympiad_nobles.char_id, characters.char_name FROM olympiad_nobles, characters WHERE characters.obj_Id = olympiad_nobles.char_id AND olympiad_nobles.class_id = ? AND olympiad_nobles.competitions_done >= " + Config.ALT_OLY_MIN_MATCHES + " AND olympiad_nobles.competitions_won > 0 ORDER BY olympiad_nobles.olympiad_points DESC, olympiad_nobles.competitions_done DESC, olympiad_nobles.competitions_won DESC";
 	private static final String GET_ALL_CLASSIFIED_NOBLESS = "SELECT char_id from olympiad_nobles_eom WHERE competitions_done >= " + Config.ALT_OLY_MIN_MATCHES + " ORDER BY olympiad_points DESC, competitions_done DESC, competitions_won DESC";
-	
 	private static final String GET_EACH_CLASS_LEADER = "SELECT characters.char_name from olympiad_nobles, characters WHERE characters.obj_Id = olympiad_nobles.char_id AND olympiad_nobles.class_id = ? AND olympiad_nobles.competitions_done >= " + Config.ALT_OLY_MIN_MATCHES + " ORDER BY olympiad_nobles.olympiad_points DESC, olympiad_nobles.competitions_done DESC LIMIT 10";
-	private static final String OLYMPIAD_RANK_POINTS = "SELECT olympiad_points from olympiad_nobles, characters WHERE characters.obj_Id = olympiad_nobles.char_id AND olympiad_nobles.class_id = ? AND olympiad_nobles.competitions_done >= 1 ORDER BY olympiad_nobles.olympiad_points DESC, olympiad_nobles.competitions_done DESC LIMIT 10";
-	private static final String OLYMPIAD_RANK_FIGHTS = "SELECT competitions_done from olympiad_nobles, characters WHERE characters.obj_Id = olympiad_nobles.char_id AND olympiad_nobles.class_id = ? AND olympiad_nobles.competitions_done >= 1 ORDER BY olympiad_nobles.olympiad_points DESC, olympiad_nobles.competitions_done DESC LIMIT 10";
 	
 	private static final String OLYMPIAD_LOAD_POINTS = "SELECT olympiad_points FROM olympiad_nobles_eom WHERE char_id = ?";
 	private static final String OLYMPIAD_DELETE_ALL = "TRUNCATE olympiad_nobles";
@@ -309,7 +306,7 @@ public class Olympiad
 		return _nobles.size();
 	}
 	
-	protected StatsSet getNobleStats(int playerId)
+	public StatsSet getNobleStats(int playerId)
 	{
 		return _nobles.get(playerId);
 	}
@@ -708,49 +705,6 @@ public class Olympiad
 			LOGGER.error("Couldn't load Olympiad leaders.", e);
 		}
 		return names;
-	}
-	
-	public List<String> getClassLeaderPoints(int point)
-	{
-		List<String> points = new ArrayList<>();
-		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(OLYMPIAD_RANK_POINTS))
-		{
-			statement.setInt(1, point);
-			
-			try(ResultSet rset = statement.executeQuery())
-			{
-				while (rset.next())
-					points.add(rset.getString(POINTS));
-			}
-		}
-		catch (Exception e)
-		{
-			LOGGER.error("Couldn't load Olympiad points", e);
-		}
-		return points;
-	}
-	
-	public List<String> getClassLeaderFights(int fight)
-	{
-		List<String> fights = new ArrayList<>();
-		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(OLYMPIAD_RANK_FIGHTS))
-		{	
-			statement.setInt(1, fight);
-			
-			try (ResultSet rset = statement.executeQuery())
-			{
-				while (rset.next())
-					fights.add(rset.getString(COMP_DONE));
-			}
-		}
-		catch (Exception e)
-		{
-			LOGGER.error("Couldn't load Olympiad fights");
-		}
-		
-		return fights;
 	}
 	
 	public int getNoblessePasses(Player player, boolean clear)

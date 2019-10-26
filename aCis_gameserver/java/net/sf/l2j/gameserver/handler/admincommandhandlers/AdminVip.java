@@ -28,7 +28,7 @@ public class AdminVip implements IAdminCommandHandler
 		StringTokenizer st = new StringTokenizer(command);
 		st.nextToken();
 		String player = "";
-		int duration = 1;
+		int duration = 0;
 		Player target = null;
 		
 		// One parameter, player name
@@ -96,19 +96,22 @@ public class AdminVip implements IAdminCommandHandler
 		target.setVip(true);
 		VipTaskManager.getInstance().add(target);
 		
-		long remainingTime = target.getMemos().getLong("vipEndTime", 0);
+		long remainingTime = target.getMemos().getLong("vipTime", 0);
 		if (remainingTime > 0)
 		{
-			target.getMemos().set("vipEndTime", remainingTime + TimeUnit.DAYS.toMillis(time));
+			target.getMemos().set("vipTime", remainingTime + TimeUnit.DAYS.toMillis(time));
 			target.sendMessage(target.getName() + " seu Vip foi estendido por " + time + " dias(s).");
 		}
 		else
 		{
-			target.getMemos().set("vipEndTime", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(time));
+			target.getMemos().set("vipTime", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(time));
 			target.sendMessage(target.getName() + " agora você é Vip, sua duração é de " + time + " dia(s).");
 			
 			for (IntIntHolder item : Config.LIST_VIP_ITEMS)
-				target.addItem("Add", item.getId(), item.getValue(), target, true);
+			{
+				if (item.getId() > 0)
+					target.addItem("Add", item.getId(), item.getValue(), target, true);
+			}
 		}
 	}
 	

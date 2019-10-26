@@ -1318,7 +1318,7 @@
     <set name="bodypart" val="underwear" />
     <set name="material" val="DYESTUFF" />
     <set name="weight" val="4200" />
-    <set name="price" val="36900" />
+    <set name="price" val="10000" />
     <for>
       <mul val="1.12" order="0x10" stat="pAtk" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1329,11 +1329,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="D" />
-    <set name="crystal_count" val="276" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="4050" />
-    <set name="price" val="152000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <add order="0x10" stat="reflectDam" val="5" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1344,11 +1342,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="D" />
-    <set name="crystal_count" val="276" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="4000" />
-    <set name="price" val="152000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <add order="0x10" stat="runSpd" val="12" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1359,11 +1355,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="B" />
-    <set name="crystal_count" val="462" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="800" />
-    <set name="price" val="3470000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <mul order="0x10" stat="mAtk" val="1.12" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1374,11 +1368,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="C" />
-    <set name="crystal_count" val="428" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="4100" />
-    <set name="price" val="1070000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <mul order="0x10" stat="rCrit" val="1.12" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1389,11 +1381,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="A" />
-    <set name="crystal_count" val="277" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="3800" />
-    <set name="price" val="3470000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <add order="0x10" stat="accCombat" val="12" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1404,11 +1394,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="A" />
-    <set name="crystal_count" val="422" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="800" />
-    <set name="price" val="5280000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <mul order="0x10" stat="maxHp" val="1.25" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1419,11 +1407,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="D" />
-    <set name="crystal_count" val="181" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="4150" />
-    <set name="price" val="99900" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <mul order="0x10" stat="pAtkSpd" val="1.12" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1434,11 +1420,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="B" />
-    <set name="crystal_count" val="208" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="4000" />
-    <set name="price" val="1560000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <mul order="0x10" stat="mAtkSpd" val="1.12" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1449,11 +1433,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="B" />
-    <set name="crystal_count" val="321" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="4100" />
-    <set name="price" val="2410000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <mul order="0x10" stat="pDef" val="1.20" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1464,11 +1446,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="B" />
-    <set name="crystal_count" val="208" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="4000" />
-    <set name="price" val="1560000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <mul order="0x10" stat="mDef" val="1.20" />
       <enchant order="0x0C" stat="pDef" val="0" />
@@ -1479,11 +1459,9 @@
     <set name="default_action" val="equip" />
     <set name="armor_type" val="NONE" />
     <set name="bodypart" val="underwear" />
-    <set name="crystal_type" val="B" />
-    <set name="crystal_count" val="321" />
     <set name="material" val="DYESTUFF" />
-    <set name="weight" val="4100" />
-    <set name="price" val="2410000" />
+    <set name="weight" val="4200" />
+    <set name="price" val="10000" />
     <for>
       <add order="0x10" stat="rEvas" val="12" />
       <enchant order="0x0C" stat="pDef" val="0" />

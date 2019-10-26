@@ -11,4 +11,5 @@
 	<donate service="9" duration="30" price="3470-80" /> <!-- Vip service 30-days -->
 	<donate service="10" duration="0" price="3470-90" /> <!-- Change gender service -->
 	<donate service="11" duration="0" price="3470-95" /> <!-- Change class service -->
+	<donate service="12" duration="0" price="3470-30" /> <!-- Hero service -->
 </list>

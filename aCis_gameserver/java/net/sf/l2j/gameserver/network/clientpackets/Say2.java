@@ -114,6 +114,8 @@ public final class Say2 extends L2GameClientPacket
 		final Player player = getClient().getPlayer();
 		if (player == null)
 			return;
+
+		player.updateLastAction();
 		
 		if (_type < 0 || _type >= CHAT_NAMES.length)
 			return;

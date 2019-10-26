@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.logging.Logger;
 
 import net.sf.l2j.commons.lang.StringUtil;
 import net.sf.l2j.commons.math.MathUtil;
@@ -30,6 +31,7 @@ import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.Summon;
 import net.sf.l2j.gameserver.model.actor.instance.Pet;
 import net.sf.l2j.gameserver.model.group.Party;
+import net.sf.l2j.gameserver.model.olympiad.Olympiad;
 import net.sf.l2j.gameserver.model.pledge.Clan;
 import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.SystemMessageId;
@@ -40,6 +42,8 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
 public class AdminEditChar implements IAdminCommandHandler
 {
+	private static final Logger GMAUDIT_LOG = Logger.getLogger("gmaudit");
+	
 	private static final int PAGE_LIMIT = 20;
 	
 	private static final String[] ADMIN_COMMANDS =
@@ -357,6 +361,8 @@ public class AdminEditChar implements IAdminCommandHandler
 					player.sendMessage("Your name has been changed by a GM.");
 					player.broadcastUserInfo();
 					player.store();
+					
+					GMAUDIT_LOG.info("Admin " + activeChar.getName() + " alterou o nome de " + player.getName() + " para " + newName);
 				}
 				else if (target instanceof Npc)
 				{
@@ -790,6 +796,13 @@ public class AdminEditChar implements IAdminCommandHandler
 		html.replace("%account%", player.getAccountName());
 		html.replace("%ip%", (player.getClient().isDetached()) ? "Disconnected" : player.getClient().getConnection().getInetAddress().getHostAddress());
 		html.replace("%ai%", player.getAI().getDesire().getIntention().name());
+		
+		// olympiad info player
+		html.replace("%match%", Olympiad.getInstance().getCompetitionDone(player.getObjectId()));
+		html.replace("%wins%", Olympiad.getInstance().getCompetitionWon(player.getObjectId()));
+		html.replace("%default%", Olympiad.getInstance().getCompetitionLost(player.getObjectId()));
+		html.replace("%points%", Olympiad.getInstance().getNoblePoints(player.getObjectId()));
+		
 		activeChar.sendPacket(html);
 	}
 	

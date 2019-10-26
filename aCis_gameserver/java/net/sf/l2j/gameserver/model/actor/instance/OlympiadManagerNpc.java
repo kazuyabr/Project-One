@@ -183,8 +183,6 @@ public class OlympiadManagerNpc extends Folk
 					if (classId >= 88 && classId <= 118)
 					{
 						List<String> names = Olympiad.getInstance().getClassLeaderBoard(classId);
-						List<String> points = Olympiad.getInstance().getClassLeaderPoints(classId);
-				        List<String> fights = Olympiad.getInstance().getClassLeaderFights(classId);
 						html.setFile(Olympiad.OLYMPIAD_HTML_PATH + "noble_ranking.htm");
 						
 						int index = 1;
@@ -198,18 +196,10 @@ public class OlympiadManagerNpc extends Folk
 								break;
 						}
 						
-						for (String point : points)
-							html.replace("%points" + index + "%", point);
-						
-						for (String fight : fights) 
-							html.replace("%fights" + index + "%", fight);
-						
 						for (; index <= 10; index++)
 						{
 							html.replace("%place" + index + "%", "");
 							html.replace("%rank" + index + "%", "");
-							html.replace("%points" + index + "%", "");
-				            html.replace("%fights" + index + "%", "");
 						}
 						
 						html.replace("%objectId%", getObjectId());

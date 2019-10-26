@@ -28,7 +28,7 @@ public class AdminAio implements IAdminCommandHandler
 		StringTokenizer st = new StringTokenizer(command);
 		st.nextToken();
 		String player = "";
-		int duration = 1;
+		int duration = 0;
 		Player target = null;
 		
 		// One parameter, player name
@@ -96,21 +96,24 @@ public class AdminAio implements IAdminCommandHandler
 		target.setAio(true);
 		AioTaskManager.getInstance().add(target);
 		
-		long remainingTime = target.getMemos().getLong("aioEndTime", 0);
+		long remainingTime = target.getMemos().getLong("aioTime", 0);
 		if (remainingTime > 0)
 		{
-			target.getMemos().set("aioEndTime", remainingTime + TimeUnit.DAYS.toMillis(time));
+			target.getMemos().set("aioTime", remainingTime + TimeUnit.DAYS.toMillis(time));
 			target.sendMessage(target.getName() + " seu Aio foi estendido por " + time + " dias(s).");
 		}
 		else
 		{
-			target.getMemos().set("aioEndTime", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(time));
+			target.getMemos().set("aioTime", System.currentTimeMillis() + TimeUnit.DAYS.toMillis(time));
 			target.sendMessage(target.getName() + " agora você é Aio, sua duração é de " + time + " dia(s).");
 			
 			for (IntIntHolder item : Config.LIST_AIO_ITEMS)
 			{
-				target.addItem("Add", item.getId(), item.getValue(), target, true);
-				target.getInventory().equipItemAndRecord(target.getInventory().getItemByItemId(item.getId()));
+				if (item.getId() > 0)
+				{
+					target.addItem("Add", item.getId(), item.getValue(), target, true);
+					target.getInventory().equipItemAndRecord(target.getInventory().getItemByItemId(item.getId()));
+				}
 			}
 		}
 	}

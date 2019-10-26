@@ -16,6 +16,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.stream.Collectors;
@@ -51,16 +52,16 @@ import net.sf.l2j.gameserver.data.xml.PlayerData;
 import net.sf.l2j.gameserver.data.xml.PvPData;
 import net.sf.l2j.gameserver.data.xml.PvPData.ColorSystem;
 import net.sf.l2j.gameserver.data.xml.PvPData.RewardSystem;
+import net.sf.l2j.gameserver.data.xml.PvPData.SpreeKills;
 import net.sf.l2j.gameserver.data.xml.RecipeData;
 import net.sf.l2j.gameserver.data.xml.ScriptData;
-import net.sf.l2j.gameserver.data.xml.SpreeKillsData;
-import net.sf.l2j.gameserver.data.xml.SpreeKillsData.SpreeKills;
 import net.sf.l2j.gameserver.enums.AiEventType;
 import net.sf.l2j.gameserver.enums.CabalType;
 import net.sf.l2j.gameserver.enums.GaugeColor;
 import net.sf.l2j.gameserver.enums.IntentionType;
 import net.sf.l2j.gameserver.enums.LootRule;
 import net.sf.l2j.gameserver.enums.MessageType;
+import net.sf.l2j.gameserver.enums.PcCafeType;
 import net.sf.l2j.gameserver.enums.PolyType;
 import net.sf.l2j.gameserver.enums.PunishmentType;
 import net.sf.l2j.gameserver.enums.ScriptEventType;
@@ -181,6 +182,7 @@ import net.sf.l2j.gameserver.network.serverpackets.EtcStatusUpdate;
 import net.sf.l2j.gameserver.network.serverpackets.ExAutoSoulShot;
 import net.sf.l2j.gameserver.network.serverpackets.ExDuelUpdateUserInfo;
 import net.sf.l2j.gameserver.network.serverpackets.ExOlympiadMode;
+import net.sf.l2j.gameserver.network.serverpackets.ExPCCafePointInfo;
 import net.sf.l2j.gameserver.network.serverpackets.ExSetCompassZoneCode;
 import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.network.serverpackets.ExStorageMaxCount;
@@ -251,6 +253,7 @@ import net.sf.l2j.gameserver.skills.l2skills.L2SkillSummon;
 import net.sf.l2j.gameserver.taskmanager.AioTaskManager;
 import net.sf.l2j.gameserver.taskmanager.AttackStanceTaskManager;
 import net.sf.l2j.gameserver.taskmanager.GameTimeTaskManager;
+import net.sf.l2j.gameserver.taskmanager.HeroTaskManager;
 import net.sf.l2j.gameserver.taskmanager.ItemsOnGroundTaskManager;
 import net.sf.l2j.gameserver.taskmanager.PvpFlagTaskManager;
 import net.sf.l2j.gameserver.taskmanager.ShadowItemTaskManager;
@@ -315,7 +318,8 @@ public final class Player extends Playable
 	private long _onlineBeginTime;
 	private long _lastAccess;
 	private long _uptime;
-	
+	private long _lastAction;
+
 	private boolean _pincheck;
 	public int _pin;
 	
@@ -336,6 +340,7 @@ public final class Player extends Playable
 	private byte _siegeState;
 	private int _curWeightPenalty;
 	private int _spreeKills;
+	private String _className = "";
 	
 	private int _lastCompassZone; // the last compass zone update send to the client
 	
@@ -542,7 +547,7 @@ public final class Player extends Playable
 	private L2Skill _summonSkillRequest;
 	
 	private Door _requestedGate;
-	
+
 	/**
 	 * Constructor of Player (use Creature constructor).
 	 * <ul>
@@ -1598,6 +1603,77 @@ public final class Player extends Playable
 		{
 			_subclassLock.unlock();
 		}
+	}
+	
+	public String setClassName(int Id)
+	{
+		switch (Id)
+		{
+			case 88:
+				return "Duelist";
+			case 89:
+				return "Dreadnought";
+			case 90:
+				return "Phoenix Knight";
+			case 91:
+				return "Hell Knight";
+			case 92:
+				return "Sagittarius";
+			case 93:
+				return "Adventurer";
+			case 94:
+				return "Archmage";
+			case 95:
+				return "Soultaker";
+			case 96:
+				return "Arcana Lord";
+			case 97:
+				return "Cardinal";
+			case 98:
+				return "Hierophant";
+			case 99:
+				return "Eva Templar";
+			case 100:
+				return "Sword Muse";
+			case 101:
+				return "Wind Rider";
+			case 102:
+				return "Moonlight Sentinel";
+			case 103:
+				return "Mystic Muse";
+			case 104:
+				return "Elemental Master";
+			case 105:
+				return "Eva Saint";
+			case 106:
+				return "Shillien Templar";
+			case 107:
+				return "Spectral Dancer";
+			case 108:
+				return "Ghost Hunter";
+			case 109:
+				return "Ghost Sentinel";
+			case 110:
+				return "Storm Screamer";
+			case 111:
+				return "Spectral Master";
+			case 112:
+				return "Shillen Saint";
+			case 113:
+				return "Titan";
+			case 114:
+				return "Grand Khauatari";
+			case 115:
+				return "Dominator";
+			case 116:
+				return "Doomcryer";
+			case 117:
+				return "Fortune Seeker";
+			case 118:
+				return "Maestro";
+		}
+		
+		return _className;
 	}
 	
 	/**
@@ -2755,7 +2831,7 @@ public final class Player extends Playable
 		}
 		
 		// Can't use Hero and resurrect skills during Olympiad
-		if (isInOlympiadMode() && (skill.isHeroSkill() || skill.isVipSkill() || skill.getSkillType() == L2SkillType.RESURRECT))
+		if (isInOlympiadMode() && (skill.isHeroSkill() || skill.getSkillType() == L2SkillType.RESURRECT))
 		{
 			sendPacket(SystemMessage.getSystemMessage(SystemMessageId.THIS_SKILL_IS_NOT_AVAILABLE_FOR_THE_OLYMPIAD_EVENT));
 			return false;
@@ -3775,7 +3851,7 @@ public final class Player extends Playable
 				{
 					_spreeKills += 1;
 					
-					for (SpreeKills kills : SpreeKillsData.getInstance().getSpreeKills())
+					for (SpreeKills kills : PvPData.getInstance().getSpreeKills())
 					{
 						if (kills.getKills() == _spreeKills)
 						{
@@ -3809,7 +3885,7 @@ public final class Player extends Playable
 			// PK Points are increased only if you kill a player.
 			if (target instanceof Player)
 				setPkKills(getPkKills() + 1);
-
+			
 			// pk reward
 			for (RewardSystem kills : PvPData.getInstance().getReward())
 			{
@@ -4940,6 +5016,16 @@ public final class Player extends Playable
 	public long getUptime()
 	{
 		return System.currentTimeMillis() - _uptime;
+	}
+
+	public boolean isAFK()
+	{
+		return _lastAction < System.currentTimeMillis();
+	}
+	
+	public void updateLastAction()
+	{
+		_lastAction = System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(Config.PCB_AFK_TIMER);
 	}
 	
 	/**
@@ -7400,17 +7486,17 @@ public final class Player extends Playable
 		if (aio)
 		{
 			for (IntIntHolder skills : Config.LIST_AIO_SKILLS)
-				addSkill(skills.getSkill(), true);
+				addSkill(skills.getSkill(), false);
 			
 			getStat().addExp(getStat().getExpForLevel(81));
 		}
 		else
 		{
 			AioTaskManager.getInstance().remove(this);
-			getMemos().set("aioEndTime", 0);
+			getMemos().set("aioTime", 0);
 			
 			for (IntIntHolder skills : Config.LIST_AIO_SKILLS)
-				removeSkill(skills.getId(), true);
+				removeSkill(skills.getId(), false);
 			
 			for (IntIntHolder item : Config.LIST_AIO_ITEMS)
 				destroyItemByItemId("Destroy", item.getId(), item.getValue(), this, true);
@@ -7434,22 +7520,22 @@ public final class Player extends Playable
 	{
 		if (vip)
 		{
-			if (Config.VIP_SKILLS > 0)
+			for (IntIntHolder skill : Config.LIST_VIP_SKILLS)
 			{
-				for (L2Skill skill : SkillTable.getVipSkills())
-					addSkill(skill, false);
+				if (skill != null)
+					addSkill(skill.getSkill(), false);
 			}
 		}
 		else
 		{
-			if (Config.VIP_SKILLS > 0)
+			for (IntIntHolder skill : Config.LIST_VIP_SKILLS)
 			{
-				for (L2Skill skill : SkillTable.getVipSkills())
+				if (skill != null)
 					removeSkill(skill.getId(), false);
 			}
 			
 			VipTaskManager.getInstance().remove(this);
-			getMemos().set("vipEndTime", 0);
+			getMemos().set("vipTime", 0);
 		}
 		
 		_isVip = vip;
@@ -7477,6 +7563,7 @@ public final class Player extends Playable
 		}
 		_isHero = hero;
 		
+		broadcastUserInfo();
 		sendSkillList();
 	}
 	
@@ -8023,6 +8110,9 @@ public final class Player extends Playable
 		if (isVip())
 			VipTaskManager.getInstance().add(this);
 		
+		if (isHero())
+			HeroTaskManager.getInstance().add(this);
+		
 		// Teleport player if the Seven Signs period isn't the good one, or if the player isn't in a cabal.
 		if (isIn7sDungeon() && !isGM())
 		{
@@ -8415,6 +8505,7 @@ public final class Player extends Playable
 			ShadowItemTaskManager.getInstance().remove(this);
 			AioTaskManager.getInstance().remove(this);
 			VipTaskManager.getInstance().remove(this);
+			HeroTaskManager.getInstance().remove(this);
 			
 			// Remove participant of event
 			Event event = getEvent();
@@ -9765,5 +9856,32 @@ public final class Player extends Playable
 	public void resetAttempt()
 	{
 		_attempt = 0;
-	}	
+	}
+	
+	public int getPcCafePoints()
+	{
+		return getMemos().getInteger("cafe_points", 0);
+	}
+	
+	public void increasePcCafePoints(int count)
+	{
+		increasePcCafePoints(count, false);
+	}
+	
+	public void increasePcCafePoints(int count, boolean doubleAmount)
+	{
+		count = doubleAmount ? count * 2 : count;
+		final int newAmount = Math.min(getMemos().getInteger("cafe_points", 0) + count, 200000);
+		getMemos().set("cafe_points", newAmount);
+		sendPacket(SystemMessage.getSystemMessage(doubleAmount ? SystemMessageId.ACQUIRED_S1_PCPOINT_DOUBLE : SystemMessageId.ACQUIRED_S1_PCPOINT).addNumber(count));
+		sendPacket(new ExPCCafePointInfo(newAmount, count, doubleAmount ? PcCafeType.DOUBLE_ADD : PcCafeType.ADD));
+	}
+	
+	public void decreasePcCafePoints(int count)
+	{
+		final int newAmount = Math.max(getMemos().getInteger("cafe_points", 0) - count, 0);
+		getMemos().set("cafe_points", newAmount);
+		sendPacket(SystemMessage.getSystemMessage(SystemMessageId.USING_S1_PCPOINT).addNumber(count));
+		sendPacket(new ExPCCafePointInfo(newAmount, -count, PcCafeType.CONSUME));
+	}
 }

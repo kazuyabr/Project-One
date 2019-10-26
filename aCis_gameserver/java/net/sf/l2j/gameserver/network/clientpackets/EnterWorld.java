@@ -24,6 +24,7 @@ import net.sf.l2j.gameserver.data.xml.AnnouncementData;
 import net.sf.l2j.gameserver.data.xml.MapRegionData.TeleportType;
 import net.sf.l2j.gameserver.data.xml.ScriptData;
 import net.sf.l2j.gameserver.enums.CabalType;
+import net.sf.l2j.gameserver.enums.PcCafeType;
 import net.sf.l2j.gameserver.enums.SealType;
 import net.sf.l2j.gameserver.enums.SiegeSide;
 import net.sf.l2j.gameserver.enums.ZoneId;
@@ -46,6 +47,7 @@ import net.sf.l2j.gameserver.network.serverpackets.CreatureSay;
 import net.sf.l2j.gameserver.network.serverpackets.Die;
 import net.sf.l2j.gameserver.network.serverpackets.EtcStatusUpdate;
 import net.sf.l2j.gameserver.network.serverpackets.ExMailArrived;
+import net.sf.l2j.gameserver.network.serverpackets.ExPCCafePointInfo;
 import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.network.serverpackets.ExStorageMaxCount;
 import net.sf.l2j.gameserver.network.serverpackets.FriendList;
@@ -65,6 +67,7 @@ import net.sf.l2j.gameserver.network.serverpackets.UserInfo;
 import net.sf.l2j.gameserver.scripting.Quest;
 import net.sf.l2j.gameserver.scripting.QuestState;
 import net.sf.l2j.gameserver.taskmanager.GameTimeTaskManager;
+import net.sf.l2j.gameserver.taskmanager.ZoneTaskManager;
 
 public class EnterWorld extends L2GameClientPacket
 {
@@ -383,8 +386,8 @@ public class EnterWorld extends L2GameClientPacket
 		
 		// announce hero
 		if (player.getActiveClass() == player.getBaseClass() && player.isHero() && Config.ANNOUNCE_HERO_ONLY_BASECLASS)
-			World.announceToOnlinePlayers(player.getClan() != null ? Config.ANNOUNCE_HERO_ENTER_BY_CLAN_MEMBER_MSG.replace("%player%", player.getName()).replace("%clan%", player.getClan().getName()).replace("%classe%", returnClassName(player.getBaseClass())) : Config.ANNOUNCE_HERO_ENTER_BY_PLAYER_MSG.replace("%player%", player.getName()).replace("%classe%", returnClassName(player.getBaseClass())), true);
-
+			World.announceToOnlinePlayers(player.getClan() != null ? Config.ANNOUNCE_HERO_ENTER_BY_CLAN_MEMBER_MSG.replace("%player%", player.getName()).replace("%clan%", player.getClan().getName()).replace("%classe%", player.setClassName(player.getBaseClass())) : Config.ANNOUNCE_HERO_ENTER_BY_PLAYER_MSG.replace("%player%", player.getName()).replace("%classe%", player.setClassName(player.getBaseClass())), true);
+		
 		// Announce Vip
 		if (player.isVip() && Config.ANNOUNCE_VIP_ENTER)
 			World.announceToOnlinePlayers(player.getClan() != null ? Config.ANNOUNCE_VIP_ENTER_BY_CLAN_MEMBER_MSG.replace("%player%", player.getName()).replace("%clan%", player.getClan().getName()) : Config.ANNOUNCE_VIP_ENTER_BY_PLAYER_MSG.replace("%player%", player.getName()), true);
@@ -395,34 +398,53 @@ public class EnterWorld extends L2GameClientPacket
 		
 		if (Config.TVT_ENABLE)
 			player.sendMessage("[Evento TvT]: Próximo evento em " + Config.EVENT_DELAY + " minuto(s)");
-
-		if (player.getMemos().getLong("aioEndTime", 0) > 0)	
+		
+		if (player.getMemos().getLong("aioTime", 0) > 0)	
 		{
 			long now = Calendar.getInstance().getTimeInMillis();
-			long endDay = player.getMemos().getLong("aioEndTime");
+			long endDay = player.getMemos().getLong("aioTime");
 			
 			if (now > endDay)
 				player.setAio(false);
 			else
 			{
 				player.setAio(true);
-				player.sendMessage("Seu Aio terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("aioEndTime", 0))) + ".");
+				player.sendMessage("Seu Aio terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("aioTime", 0))) + ".");
 			}
 		}
 		
-		if (player.getMemos().getLong("vipEndTime", 0) > 0)	
+		if (player.getMemos().getLong("vipTime", 0) > 0)	
 		{
 			long now = Calendar.getInstance().getTimeInMillis();
-			long endDay = player.getMemos().getLong("vipEndTime");
+			long endDay = player.getMemos().getLong("vipTime");
 			
 			if (now > endDay)
 				player.setVip(false);
 			else
 			{
 				player.setVip(true);
-				player.sendMessage("Seu Vip terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("vipEndTime", 0))) + ".");
+				player.sendMessage("Seu Vip terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("vipTime", 0))) + ".");
 			}
 		}
+		
+		if (player.getMemos().getLong("heroTime", 0) > 0)
+		{
+			long now = Calendar.getInstance().getTimeInMillis();
+			long endDay = player.getMemos().getLong("heroTime");
+			
+			if (now > endDay)
+				player.setHero(false);
+			else
+			{
+				player.setHero(true);
+				player.sendMessage("Seu Hero terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("heroTime", 0))) + ".");
+			}
+		}
+		
+		ZoneTaskManager.getInstance().onEnter(player);
+		
+		if (Config.PCB_INTERVAL > 0)
+			player.sendPacket(new ExPCCafePointInfo(player.getPcCafePoints(), 0, PcCafeType.NORMAL));
 		
 		sendPacket(new SkillCoolTime(player));
 		
@@ -443,80 +465,6 @@ public class EnterWorld extends L2GameClientPacket
 		ClassMaster.showQuestionMark(player);
 		
 		player.sendPacket(ActionFailed.STATIC_PACKET);
-	}
-	
-	/**
-	 * @param classid for search Name
-	 * @return the Class Name
-	 */
-	public static String returnClassName(int classid)
-	{
-		switch (classid)
-		{
-			case 88:
-				return "Duelist";
-			case 89:
-				return "DreadNought";
-			case 90:
-				return "Phoenix Knight";
-			case 91:
-				return "Hell Knight";
-			case 92:
-				return "Sagittarius";
-			case 93:
-				return "Adventurer";
-			case 94:
-				return "Archmage";
-			case 95:
-				return "Soultaker";
-			case 96:
-				return "Arcana Lord";
-			case 97:
-				return "Cardinal";
-			case 98:
-				return "Hierophant";
-			case 99:
-				return "Eva Templar";
-			case 100:
-				return "Sword Muse";
-			case 101:
-				return "Wind Rider";
-			case 102:
-				return "Moonlight Sentinel";
-			case 103:
-				return "Mystic Muse";
-			case 104:
-				return "Elemental Master";
-			case 105:
-				return "Eva Saint";
-			case 106:
-				return "Shillien Templar";
-			case 107:
-				return "Spectral Dancer";
-			case 108:
-				return "Ghost Hunter";
-			case 109:
-				return "Ghost Sentinel";
-			case 110:
-				return "Storm Screamer";
-			case 111:
-				return "Spectral Master";
-			case 112:
-				return "Shillen Saint";
-			case 113:
-				return "Titan";
-			case 114:
-				return "Grand Khauatari";
-			case 115:
-				return "Dominator";
-			case 116:
-				return "Doomcryer";
-			case 117:
-				return "Fortune Seeker";
-			case 118:
-				return "Maestro";
-		}
-		return "";
 	}
 	
 	@Override

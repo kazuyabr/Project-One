@@ -19,6 +19,7 @@ public class PvPData implements IXmlReader
 {
 	private final List<ColorSystem> _color = new ArrayList<>();
 	private final List<RewardSystem> _reward = new ArrayList<>();
+	private final List<SpreeKills> _spree = new ArrayList<>();
 	
 	public PvPData()
 	{
@@ -29,6 +30,7 @@ public class PvPData implements IXmlReader
 	{
 		_color.clear();
 		_reward.clear();
+		_spree.clear();
 		load();
 	}
 	
@@ -36,7 +38,9 @@ public class PvPData implements IXmlReader
 	public void load()
 	{
 		parseFile("./data/xml/pvpSystem.xml");
-		LOGGER.info("Loaded {} PvP System templates.", "Colors: " + _color.size() + " Rewards: " + _reward.size());
+		LOGGER.info("Loaded {} PvP Colors templates.", _color.size());
+		LOGGER.info("Loaded {} PvP Rewards templates.", _reward.size());
+		LOGGER.info("Loaded {} SpreeKills data.", _spree.size());
 	}
 	
 	@Override
@@ -52,6 +56,12 @@ public class PvPData implements IXmlReader
 		{
 			final StatsSet set = parseAttributes(node);
 			_reward.add(new RewardSystem(set));
+		}));
+		
+		forEach(doc, "list", listNode -> forEach(listNode, "SpreeKills", node ->
+		{
+			final StatsSet set = parseAttributes(node);
+			_spree.add(new SpreeKills(set));
 		}));
 	}
 
@@ -109,6 +119,54 @@ public class PvPData implements IXmlReader
 		}	
 	}
 
+	public List<SpreeKills> getSpreeKills()
+	{
+		return _spree;
+	}
+
+	public class SpreeKills
+	{
+		private final int _type;
+		private final int _kill;
+		private final String _msg;
+		private final String _sound;
+		private final List<IntIntHolder> _reward;
+		
+		public SpreeKills(StatsSet set)
+		{
+			_type = set.getInteger("type");
+			_kill = set.getInteger("kills");
+			_msg = set.getString("msg");
+			_sound = set.getString("sound");
+			_reward = set.getIntIntHolderList("reward");
+		}
+
+		public int getType()
+		{
+			return _type;
+		}
+		
+		public int getKills()
+		{
+			return _kill;
+		}
+		
+		public String getMsg()
+		{
+			return _msg;
+		}
+
+		public String getSound()
+		{
+			return _sound;
+		}
+
+		public List<IntIntHolder> getReward()
+		{
+			return _reward;
+		}
+	}
+	
 	public static PvPData getInstance()
 	{
 		return SingletonHolder._instance;

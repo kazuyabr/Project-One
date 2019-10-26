@@ -208,7 +208,6 @@ public abstract class L2Skill implements IChanceSkillTrigger
 	private final int _feed;
 	
 	private final boolean _isHeroSkill; // If true the skill is a Hero Skill
-	private final boolean _isVipSkill; // If true the skill is a Vip Skill
 	
 	private final int _baseCritRate; // percent of success for skill critical hit (especially for PDAM & BLOW - they're not affected by rCrit values or buffs). Default loads -1 for all other skills but 0 to PDAM & BLOW
 	private final int _lethalEffect1; // percent of success for lethal 1st effect (hit cp to 1 or if mob hp to 50%) (only for PDAM skills)
@@ -423,7 +422,6 @@ public abstract class L2Skill implements IChanceSkillTrigger
 		_numCharges = set.getInteger("numCharges", 0);
 		
 		_isHeroSkill = SkillTable.isHeroSkill(_id);
-		_isVipSkill = SkillTable.isVipSkill(_id);
 		
 		_baseCritRate = set.getInteger("baseCritRate", (_skillType == L2SkillType.PDAM || _skillType == L2SkillType.BLOW) ? 0 : -1);
 		_lethalEffect1 = set.getInteger("lethal1", 0);
@@ -1081,11 +1079,6 @@ public abstract class L2Skill implements IChanceSkillTrigger
 		return _isHeroSkill;
 	}
 	
-	public final boolean isVipSkill()
-	{
-		return _isVipSkill;
-	}
-
 	public final boolean isAioSkill()
 	{
 		return Config.LIST_AIO_SKILLS.length == getId();

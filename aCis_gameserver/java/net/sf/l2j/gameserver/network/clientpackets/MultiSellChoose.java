@@ -23,7 +23,7 @@ public class MultiSellChoose extends L2GameClientPacket
 {
 	// Special IDs.
 	private static final int CLAN_REPUTATION = 65336;
-	// private static final int PC_BANG_POINTS = 65436;
+	private static final int PC_BANG_POINTS = 65436;
 	
 	private int _listId;
 	private int _entryId;
@@ -191,6 +191,14 @@ public class MultiSellChoose extends L2GameClientPacket
 					return;
 				}
 			}
+			else if (e.getItemId() == PC_BANG_POINTS)
+			{
+				if (player.getPcCafePoints() < e.getItemCount() * _amount)
+				{
+					player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.SHORT_OF_ACCUMULATED_POINTS));
+					return;
+				}
+			}
 			else
 			{
 				// if this is not a list that maintains enchantment, check the count of all items that have the given id.
@@ -214,6 +222,8 @@ public class MultiSellChoose extends L2GameClientPacket
 				player.getClan().takeReputationScore(amount);
 				player.sendPacket(SystemMessage.getSystemMessage(SystemMessageId.S1_DEDUCTED_FROM_CLAN_REP).addNumber(amount));
 			}
+			else if (e.getItemId() == PC_BANG_POINTS)
+				player.decreasePcCafePoints(e.getItemCount() * _amount);
 			else
 			{
 				ItemInstance itemToTake = inv.getItemByItemId(e.getItemId());

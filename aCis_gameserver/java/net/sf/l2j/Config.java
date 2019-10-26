@@ -121,6 +121,14 @@ public final class Config
 	// Events settings
 	// --------------------------------------------------
 
+	/** Pc bang points*/
+	public static int PCB_INTERVAL;
+	public static int PCB_MIN_LEVEL;
+	public static int PCB_POINT_MIN;
+	public static int PCB_POINT_MAX;
+	public static int PCB_CHANCE_DUAL_POINT;
+	public static int PCB_AFK_TIMER;
+	
 	/** Character Killing Monument settings */
 	public static boolean CKM_ENABLED;
 	public static long CKM_CYCLE_LENGTH;
@@ -551,7 +559,7 @@ public final class Config
 
 	/** Vip */
 	public static int VIP_COLOR;
-	public static int VIP_SKILLS;
+	public static IntIntHolder[] LIST_VIP_SKILLS;
 	public static IntIntHolder[] LIST_VIP_ITEMS;
 	public static double VIP_RATE_XP;
 	public static double VIP_RATE_SP;
@@ -881,6 +889,13 @@ public final class Config
 	private static final void loadEvents()
 	{
 		final ExProperties events = initProperties(EVENTS_FILE);
+		PCB_INTERVAL = events.getProperty("PcBangPointTime", 0);
+		PCB_MIN_LEVEL = events.getProperty("PcBangPointMinLevel", 20);
+		PCB_POINT_MIN = events.getProperty("PcBangPointMinCount", 1);
+		PCB_POINT_MAX = events.getProperty("PcBangPointMaxCount", 5);
+		PCB_CHANCE_DUAL_POINT = events.getProperty("PcBangPointDualChance", 100);
+		PCB_AFK_TIMER = events.getProperty("PcBangTimerAFK", 1);
+		
 		CKM_ENABLED = events.getProperty("CKMEnabled", false);
 		CKM_CYCLE_LENGTH = events.getProperty("CKMCycleLength", 86400000);
 		CKM_PVP_NPC_TITLE = events.getProperty("CKMPvPNpcTitle", "%kills% PvPs in the last 24h");
@@ -1324,7 +1339,7 @@ public final class Config
 		STORE_SKILL_COOLTIME = players.getProperty("StoreSkillCooltime", true);
 		
 		VIP_COLOR = Integer.decode("0x" + players.getProperty("VipColor", "FFFF00"));
-		VIP_SKILLS = players.getProperty("VipSkill", 0);
+		LIST_VIP_SKILLS = players.parseIntIntList("VipSkill", "1-268");
 		LIST_VIP_ITEMS = players.parseIntIntList("VipItems", "1-268");
 		
 		VIP_RATE_XP = players.getProperty("VipXpRates", 1.5);

@@ -54,6 +54,8 @@ public class MoveBackwardToLocation extends L2GameClientPacket
 		final Player activeChar = getClient().getPlayer();
 		if (activeChar == null)
 			return;
+
+		activeChar.updateLastAction();
 		
 		if (activeChar.isOutOfControl())
 		{

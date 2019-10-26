@@ -1,5 +1,7 @@
 package net.sf.l2j.gameserver.network.serverpackets;
 
+import net.sf.l2j.gameserver.enums.PcCafeType;
+
 /**
  * Format: ch ddcdc
  * @author KenM
@@ -7,14 +9,14 @@ package net.sf.l2j.gameserver.network.serverpackets;
 public class ExPCCafePointInfo extends L2GameServerPacket
 {
 	private final int _score, _modify, _periodType, _remainingTime;
-	private int _pointType = 0;
+	private PcCafeType _pointType;
 	
-	public ExPCCafePointInfo(int score, int modify, boolean addPoint, boolean pointType, int remainingTime)
+	public ExPCCafePointInfo(int score, int modify, PcCafeType type)
 	{
 		_score = score;
-		_modify = addPoint ? modify : modify * -1;
-		_remainingTime = remainingTime;
-		_pointType = addPoint ? (pointType ? 0 : 1) : 2;
+		_modify = modify;
+		_remainingTime = 0;
+		_pointType = type;
 		_periodType = 1; // get point time
 	}
 	
@@ -27,6 +29,6 @@ public class ExPCCafePointInfo extends L2GameServerPacket
 		writeD(_modify);
 		writeC(_periodType);
 		writeD(_remainingTime);
-		writeC(_pointType);
+		writeC(_pointType.ordinal());
 	}
 }

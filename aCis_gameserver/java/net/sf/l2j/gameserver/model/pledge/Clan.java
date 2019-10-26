@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.sf.l2j.commons.lang.StringUtil;
 import net.sf.l2j.commons.logging.CLogger;
@@ -132,6 +133,8 @@ public class Clan
 	private final Map<Integer, L2Skill> _skills = new ConcurrentHashMap<>();
 	private final Map<Integer, Integer> _priviledges = new ConcurrentHashMap<>();
 	private final Map<Integer, SubPledge> _subPledges = new ConcurrentHashMap<>();
+	
+	private final List<Player> _watchers = new CopyOnWriteArrayList<>();
 	
 	private final Set<Integer> _atWarWith = ConcurrentHashMap.newKeySet();
 	private final Set<Integer> _atWarAttackers = ConcurrentHashMap.newKeySet();
@@ -836,16 +839,16 @@ public class Clan
 				{
 					case 0:
 						return 10;
-					
+						
 					case 1:
 						return 15;
-					
+						
 					case 2:
 						return 20;
-					
+						
 					case 3:
 						return 30;
-					
+						
 					default:
 						return 40;
 				}
@@ -854,7 +857,7 @@ public class Clan
 			case SUBUNIT_ROYAL1:
 			case SUBUNIT_ROYAL2:
 				return 20;
-			
+				
 			case SUBUNIT_KNIGHT1:
 			case SUBUNIT_KNIGHT2:
 			case SUBUNIT_KNIGHT3:
@@ -1123,6 +1126,11 @@ public class Clan
 		return _warehouse;
 	}
 	
+	public List<Player> getWatchers()
+	{
+		return _watchers;
+	}
+	
 	public boolean isAtWarWith(int id)
 	{
 		return _atWarWith.contains(id);
@@ -1300,26 +1308,26 @@ public class Clan
 			{
 				case SUBUNIT_ACADEMY:
 					return 0;
-				
+					
 				case SUBUNIT_ROYAL1:
 					pledgeType = getAvailablePledgeTypes(SUBUNIT_ROYAL2);
 					break;
-				
+					
 				case SUBUNIT_ROYAL2:
 					return 0;
-				
+					
 				case SUBUNIT_KNIGHT1:
 					pledgeType = getAvailablePledgeTypes(SUBUNIT_KNIGHT2);
 					break;
-				
+					
 				case SUBUNIT_KNIGHT2:
 					pledgeType = getAvailablePledgeTypes(SUBUNIT_KNIGHT3);
 					break;
-				
+					
 				case SUBUNIT_KNIGHT3:
 					pledgeType = getAvailablePledgeTypes(SUBUNIT_KNIGHT4);
 					break;
-				
+					
 				case SUBUNIT_KNIGHT4:
 					return 0;
 			}
@@ -1841,7 +1849,7 @@ public class Clan
 					increaseClanLevel = true;
 				}
 				break;
-			
+				
 			case 1: // upgrade to 2
 				if (player.getSp() >= 150000 && player.reduceAdena("ClanLvl", 2500000, player.getTarget(), true))
 				{
@@ -1849,7 +1857,7 @@ public class Clan
 					increaseClanLevel = true;
 				}
 				break;
-			
+				
 			case 2:// upgrade to 3
 				if (player.getSp() >= 500000 && player.destroyItemByItemId("ClanLvl", 1419, 1, player.getTarget(), true))
 				{
@@ -1857,7 +1865,7 @@ public class Clan
 					increaseClanLevel = true;
 				}
 				break;
-			
+				
 			case 3: // upgrade to 4
 				if (player.getSp() >= 1400000 && player.destroyItemByItemId("ClanLvl", 3874, 1, player.getTarget(), true))
 				{
@@ -1865,7 +1873,7 @@ public class Clan
 					increaseClanLevel = true;
 				}
 				break;
-			
+				
 			case 4: // upgrade to 5
 				if (player.getSp() >= 3500000 && player.destroyItemByItemId("ClanLvl", 3870, 1, player.getTarget(), true))
 				{
@@ -1873,7 +1881,7 @@ public class Clan
 					increaseClanLevel = true;
 				}
 				break;
-			
+				
 			case 5:
 				if (_reputationScore >= 10000 && getMembersCount() >= 30)
 				{
@@ -1882,7 +1890,7 @@ public class Clan
 					increaseClanLevel = true;
 				}
 				break;
-			
+				
 			case 6:
 				if (_reputationScore >= 20000 && getMembersCount() >= 80)
 				{
@@ -1891,7 +1899,7 @@ public class Clan
 					increaseClanLevel = true;
 				}
 				break;
-			
+				
 			case 7:
 				if (_reputationScore >= 40000 && getMembersCount() >= 120)
 				{
@@ -2061,7 +2069,7 @@ public class Clan
 		for (Castle castle : CastleManager.getInstance().getCastles())
 			if (castle.getSiege().checkSides(this))
 				return true;
-			
+		
 		return false;
 	}
 }

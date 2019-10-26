@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import net.sf.l2j.Config;
 import net.sf.l2j.gameserver.model.L2Skill;
 import net.sf.l2j.gameserver.skills.DocumentSkill;
 
@@ -16,12 +15,6 @@ public class SkillTable
 	private static final Map<Integer, L2Skill> _skills = new HashMap<>();
 	private static final Map<Integer, Integer> _skillMaxLevel = new HashMap<>();
 
-	private static final L2Skill[] _vipSkills = new L2Skill[1];
-	private static final int[] _vipSkillsId =
-	{	
-		Config.VIP_SKILLS
-	};
-	
 	private static final L2Skill[] _heroSkills = new L2Skill[5];
 	private static final int[] _heroSkillsId =
 	{
@@ -92,9 +85,6 @@ public class SkillTable
 		for (int i = 0; i < _heroSkillsId.length; i++)
 			_heroSkills[i] = getInfo(_heroSkillsId[i], 1);
 
-		for (int i = 0; i < _vipSkillsId.length; i++)
-			_vipSkills[i] = getInfo(_vipSkillsId[i], 1);
-		
 		for (int i = 0; i < _nobleSkills.length; i++)
 			_nobleSkills[i] = getInfo(_nobleSkillsId[i], 1);
 	}
@@ -171,20 +161,6 @@ public class SkillTable
 		return false;
 	}
 
-	public static L2Skill[] getVipSkills()
-	{
-		return _vipSkills;
-	}
-	
-	public static boolean isVipSkill(int skillid)
-	{
-		for (int id : _vipSkillsId)
-			if (id == skillid)
-				return true;
-			
-		return false;
-	}
-	
 	public static L2Skill[] getNobleSkills()
 	{
 		return _nobleSkills;

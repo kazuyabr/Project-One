@@ -76,7 +76,6 @@ import net.sf.l2j.gameserver.data.xml.ScriptData;
 import net.sf.l2j.gameserver.data.xml.SkillTreeData;
 import net.sf.l2j.gameserver.data.xml.SoulCrystalData;
 import net.sf.l2j.gameserver.data.xml.SpellbookData;
-import net.sf.l2j.gameserver.data.xml.SpreeKillsData;
 import net.sf.l2j.gameserver.data.xml.StaticObjectData;
 import net.sf.l2j.gameserver.data.xml.SummonItemData;
 import net.sf.l2j.gameserver.data.xml.TeleportLocationData;
@@ -107,10 +106,12 @@ import net.sf.l2j.gameserver.taskmanager.DecayTaskManager;
 import net.sf.l2j.gameserver.taskmanager.GameTimeTaskManager;
 import net.sf.l2j.gameserver.taskmanager.ItemsOnGroundTaskManager;
 import net.sf.l2j.gameserver.taskmanager.MovementTaskManager;
+import net.sf.l2j.gameserver.taskmanager.PcCafeTaskManager;
 import net.sf.l2j.gameserver.taskmanager.PvpFlagTaskManager;
 import net.sf.l2j.gameserver.taskmanager.RandomAnimationTaskManager;
 import net.sf.l2j.gameserver.taskmanager.ShadowItemTaskManager;
 import net.sf.l2j.gameserver.taskmanager.WaterTaskManager;
+import net.sf.l2j.gameserver.taskmanager.ZoneTaskManager;
 import net.sf.l2j.util.DeadLockDetector;
 import net.sf.l2j.util.IPv4Filter;
 
@@ -131,6 +132,7 @@ public class GameServer
 	{
 		// Create log folder
 		new File("./log").mkdir();
+		new File("./log/report").mkdirs();
 		new File("./log/chat").mkdir();
 		new File("./log/donate").mkdir();
 		new File("./log/console").mkdir();
@@ -199,7 +201,6 @@ public class GameServer
 		PartyMatchRoomList.getInstance();
 		RaidPointManager.getInstance();
 		PvPData.getInstance();
-		SpreeKillsData.getInstance();
 		
 		if ((Config.OFFLINE_TRADE_ENABLE || Config.OFFLINE_CRAFT_ENABLE) && Config.RESTORE_OFFLINERS)
 			OfflineTradersTable.restoreOfflineTraders();
@@ -234,6 +235,7 @@ public class GameServer
 		RandomAnimationTaskManager.getInstance();
 		ShadowItemTaskManager.getInstance();
 		WaterTaskManager.getInstance();
+		ZoneTaskManager.getInstance();
 		
 		StringUtil.printSection("Auto Spawns");
 		AutoSpawnTable.getInstance();
@@ -298,7 +300,10 @@ public class GameServer
 
 		if (Config.CKM_ENABLED)
 			CharacterKillingManager.getInstance().init();
-		
+
+		if (Config.PCB_INTERVAL > 0)
+			PcCafeTaskManager.getInstance();
+
 		if (Config.TIME_DOUBLE_RATES > 0)
 			DoubleRates.getInstance();
 		

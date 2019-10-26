@@ -100,6 +100,14 @@ public class ItemTable
 	}
 	
 	/**
+	 * @return the list of all {@link Item} templates.
+	 */
+	public Item[] getTemplates()
+	{
+		return _allTemplates;
+	}
+	
+	/**
 	 * @param id : int designating the item
 	 * @return the item corresponding to the item ID.
 	 */

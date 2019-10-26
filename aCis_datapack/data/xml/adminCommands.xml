@@ -53,6 +53,11 @@
 	<!-- CLANHALL -->
 	<aCar name="admin_ch" accessLevel="7" />
 
+	<!-- CLAN -->
+	<aCar name="admin_watchclan" accessLevel="7" />
+	<aCar name="admin_stopwatch" accessLevel="7" />
+	<aCar name="admin_clanfull" accessLevel="7" />
+
 	<!-- CREATE ITEM -->
 	<aCar name="admin_itemcreate" accessLevel="7" />
 	<aCar name="admin_create_item" accessLevel="7" />
@@ -190,6 +195,9 @@
 	<!-- HELP PAGE -->
 	<aCar name="admin_help" accessLevel="7" />
 
+	<!-- INVENTORY -->
+	<aCar name="admin_inventory_cleanup" accessLevel="5" />
+
 	<!-- KICK -->
 	<aCar name="admin_character_disconnect" accessLevel="7" />
 	<aCar name="admin_kick" accessLevel="7" />
@@ -238,6 +246,8 @@
 
 	<!-- OLYMPIADS -->
 	<aCar name="admin_endoly" accessLevel="7" />
+	<aCar name="admin_addolypoints" accessLevel="7" />
+	<aCar name="admin_removeolypoints" accessLevel="7" />
 	<aCar name="admin_sethero" accessLevel="7" />
 	<aCar name="admin_setnoble" accessLevel="7" />
 
@@ -276,6 +286,9 @@
 	<aCar name="admin_buy" accessLevel="7" />
 	<aCar name="admin_gmshop" accessLevel="7" />
 
+    <!-- SEARCH -->
+  	<aCar name="admin_search" accessLevel="7"/>
+  
 	<!-- SIEGE -->
 	<aCar name="admin_siege" accessLevel="7" />
 	<aCar name="admin_add_attacker" accessLevel="7" />
@@ -333,6 +346,7 @@
 	<aCar name="admin_goto" accessLevel="7" />
 	<aCar name="admin_teleportto" accessLevel="7" />
 	<aCar name="admin_recall" accessLevel="7" />
+	<aCar name="admin_recallall" accessLevel="7" />
 	<aCar name="admin_recall_party" accessLevel="7" />
 	<aCar name="admin_recall_clan" accessLevel="7" />
 	<aCar name="admin_move_to" accessLevel="7" />

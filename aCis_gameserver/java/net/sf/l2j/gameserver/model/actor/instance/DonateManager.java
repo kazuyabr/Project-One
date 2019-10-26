@@ -18,6 +18,7 @@ import net.sf.l2j.gameserver.data.xml.DonateData;
 import net.sf.l2j.gameserver.data.xml.NpcData;
 import net.sf.l2j.gameserver.data.xml.DonateData.Donate;
 import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminAio;
+import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminOlympiad;
 import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminVip;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.player.Experience;
@@ -82,6 +83,7 @@ public class DonateManager extends Folk
 					player.destroyItemByItemId("", price.getId(), price.getValue(), player, true);
 					AdminAio.doAio(player, service.getDuration());
 					
+					DONATE_AUDIT_LOG.info(player.getName() + " comprou "+ service.getDuration() +" dias de AIO. Seu ID [" + player.getObjectId() + "]");
 				}
 				else if (currentCommand.startsWith("clanLevel"))		
 				{		
@@ -97,9 +99,11 @@ public class DonateManager extends Folk
 						
 						player.getClan().changeLevel(8);
 						player.sendMessage("Parabéns "+ player.getName() +" você acaba de comprar Level 8 para o seu clã.");
+						
+						DONATE_AUDIT_LOG.info(player.getName() + " comprou Level 8 para o clã "+ player.getClan().getName() +". Seu ID [" + player.getObjectId() + "]");
 					}
 					else        
-						player.sendMessage("Desculpe mais só o lider do seu clan pode comprar Clan.");  
+						player.sendMessage("Desculpe mais só o lider do clan "+ player.getClan().getName() +" pode usar esse serviço.");  
 				}
 				else if (currentCommand.startsWith("clanSkill"))		
 				{		
@@ -111,9 +115,11 @@ public class DonateManager extends Folk
 							player.getClan().addNewSkill(SkillTable.getInstance().getInfo(i, SkillTable.getInstance().getMaxLevel(i)));            
 						
 						player.sendMessage("Parabéns "+ player.getName() +" você acaba de comprar todas habilidades para o seu clã.");
+						
+						DONATE_AUDIT_LOG.info(player.getName() + " comprou todas habilidades de clã, para o clã "+ player.getClan().getName() +". Seu ID [" + player.getObjectId() + "]");
 					}
 					else        
-						player.sendMessage("Desculpe mais só o lider do seu clan pode comprar Clan.");  
+						player.sendMessage("Desculpe mais só o lider do clan "+ player.getClan().getName() +" pode usar esse serviço.");  
 				}
 				else if (currentCommand.startsWith("clanRep"))		
 				{		
@@ -123,9 +129,11 @@ public class DonateManager extends Folk
 						player.getClan().addReputationScore(100000);    
 						player.getClan().updateClanInDB();
 						player.sendMessage("Parabéns "+ player.getName() +" você acaba de comprar 100000 de reputação para o seu clã.");
+						
+						DONATE_AUDIT_LOG.info(player.getName() + " comprou 100000 de reputação, para o clã "+ player.getClan().getName() +". Seu ID [" + player.getObjectId() + "]");
 					}
 					else        
-						player.sendMessage("Desculpe mais só o lider do seu clan pode comprar Clan.");  
+						player.sendMessage("Desculpe mais só o lider do clan "+ player.getClan().getName() +" pode usar esse serviço."); 
 				}
 				else if (currentCommand.startsWith("clanName"))		
 				{	
@@ -139,7 +147,7 @@ public class DonateManager extends Folk
 					
 					if (!player.isClanLeader())
 					{
-						player.sendMessage("Somente o líder do clã pode mudar o nome do clã.");
+						player.sendMessage("Desculpe mais só o lider do clan "+ player.getClan().getName() +" pode usar esse serviço."); 
 						return;
 					}
 					else if (player.getClan().getLevel() < 5)
@@ -166,12 +174,33 @@ public class DonateManager extends Folk
 					player.destroyItemByItemId("", price.getId(), price.getValue(), player, true);
 					player.getClan().setName(newClanName);
 					player.sendMessage("O novo nome do seu clã é " + newClanName);
+					
+					ThreadPool.schedule(() -> player.logout(false), 1000);
+					DONATE_AUDIT_LOG.info(player.getName() + " mudou o nome do clan "+ player.getClan().getName() +" para "+ newClanName +". Seu ID [" + player.getObjectId() + "]");
+				}
+				else if (currentCommand.startsWith("hero"))		
+				{		
+					if (player.isHero())
+					{
+						player.sendMessage("Desculpe mais você já é um héroi da classe ." + player.setClassName(player.getBaseClass()));
+						return;
+					}
+					else if (player.getBaseClass() != player.getClassId().getId())
+					{
+						player.sendMessage("Você precisa estar com sua Classe "+ player.setClassName(player.getBaseClass()) + " para poder mudar.");
+						return;
+					}
+					
+					player.destroyItemByItemId("", price.getId(), price.getValue(), player, true);
+					AdminOlympiad.doHero(player, service.getDuration());
+					
+					DONATE_AUDIT_LOG.info(player.getName() + " comprou "+ service.getDuration() +" dias de Hero. Seu ID [" + player.getObjectId() + "]");
 				}
 				else if (currentCommand.startsWith("classe"))		
 				{	
 					if (player.getBaseClass() != player.getClassId().getId())
 					{
-						player.sendMessage("Você precisa estar com sua Classe Base para poder mudar.");
+						player.sendMessage("Você precisa estar com sua Classe "+ player.setClassName(player.getBaseClass()) + " para poder mudar.");
 						return;
 					}
 					
@@ -458,8 +487,10 @@ public class DonateManager extends Folk
 							getClassId(player, 118);
 							break;
 					}
-
+					
 					player.destroyItemByItemId("", price.getId(), price.getValue(), player, true);
+					
+					DONATE_AUDIT_LOG.info(player.getName() + " mudou sua classe para "+ classes +". Seu ID [" + player.getObjectId() + "]");
 				}
 				else if (currentCommand.startsWith("name"))		
 				{
@@ -488,11 +519,12 @@ public class DonateManager extends Folk
 					player.destroyItemByItemId("", price.getId(), price.getValue(), player, true);
 					
 					player.setName(newName);
-					DONATE_AUDIT_LOG.info(player.getName() + " usou o serviço troca de nome seu nome agora é " + newName);
 					PlayerInfoTable.getInstance().updatePlayerData(player, false);
 					player.sendMessage("Você acaba de trocar nick. Lembrando que seu antigo nome estar salvo no banco de dados.");
 					player.broadcastUserInfo();
 					player.store();
+					
+					DONATE_AUDIT_LOG.info(player.getName() + " usou o serviço troca de nome seu ID é  [" + player.getObjectId() + "]");
 				}
 				else if (currentCommand.startsWith("nobles"))		
 				{				
@@ -506,6 +538,8 @@ public class DonateManager extends Folk
 					player.setNoble(true, true);
 					player.sendMessage("Parabéns "+ player.getName() +" você acaba de comprar Nobles.");
 					player.broadcastUserInfo();
+					
+					DONATE_AUDIT_LOG.info(player.getName() + " comprou nobles. Seu ID [" + player.getObjectId() + "]");
 				}
 				else if (currentCommand.startsWith("level"))		
 				{			
@@ -518,6 +552,8 @@ public class DonateManager extends Folk
 					player.destroyItemByItemId("", price.getId(), price.getValue(), player, true);
 					player.addExpAndSp(Experience.LEVEL[81], 0);
 					player.sendMessage("Parabéns "+ player.getName() +" você acaba de comprar level 81.");
+					
+					DONATE_AUDIT_LOG.info(player.getName() + " comprou level 81. Seu ID [" + player.getObjectId() + "]");
 				}
 				else if (currentCommand.startsWith("vip"))		
 				{		
@@ -529,6 +565,8 @@ public class DonateManager extends Folk
 					
 					player.destroyItemByItemId("", price.getId(), price.getValue(), null, true);
 					AdminVip.doVip(player, service.getDuration());
+					
+					DONATE_AUDIT_LOG.info(player.getName() + " comprou "+ service.getDuration() +" dias de VIP. Seu ID [" + player.getObjectId() + "]");
 				}
 				else if (currentCommand.startsWith("gender"))		
 				{			
@@ -541,6 +579,7 @@ public class DonateManager extends Folk
 					player.decayMe();
 					player.spawnMe();
 					ThreadPool.schedule(() -> player.logout(false), 3000);
+					DONATE_AUDIT_LOG.info(player.getName() + " comprou nobles. Seu ID [" + player.getObjectId() + "]");
 				}
 			}
 		}
