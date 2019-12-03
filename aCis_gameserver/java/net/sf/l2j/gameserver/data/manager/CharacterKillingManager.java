@@ -3,7 +3,6 @@ package net.sf.l2j.gameserver.data.manager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -17,14 +16,11 @@ import net.sf.l2j.L2DatabaseFactory;
 
 import net.sf.l2j.commons.concurrent.ThreadPool;
 
-import net.sf.l2j.gameserver.data.ItemTable;
-import net.sf.l2j.gameserver.idfactory.IdFactory;
 import net.sf.l2j.gameserver.model.CharSelectSlot;
 import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.actor.PcPolymorph;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.holder.IntIntHolder;
-import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.network.serverpackets.SocialAction;
 
 /**
@@ -309,6 +305,7 @@ public final class CharacterKillingManager
 		protected static final CharacterKillingManager _instance = new CharacterKillingManager();
 	}
 	
+	@SuppressWarnings("static-access")
 	private static void addReward(int obj_id, boolean duple)
 	{
 		Player player = World.getInstance().getPlayer(obj_id);
@@ -317,38 +314,7 @@ public final class CharacterKillingManager
 			if (player != null && player.isOnline())
 				player.addItem("Top in 24 hours", reward.getId(), duple ? reward.getValue() * 2 : reward.getValue(), null, true);
 			else
-				addOfflineItem(obj_id, reward.getId(), duple ? reward.getValue() * 2 : reward.getValue());
-		}
-	}
-	
-	private static void addOfflineItem(int owner_id, int item_id, int count)
-	{
-		Item item = ItemTable.getInstance().getTemplate(item_id);
-		int objectId = IdFactory.getInstance().getNextId();
-		
-		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement("INSERT INTO items (owner_id,item_id,count,loc,loc_data,enchant_level,object_id,custom_type1,custom_type2,mana_left,time) VALUES (?,?,?,?,?,?,?,?,?,?,?)"))
-		{
-			if (count > 1 && !item.isStackable())
-				return;
-			
-			statement.setInt(1, owner_id);
-			statement.setInt(2, item.getItemId());
-			statement.setInt(3, count);
-			statement.setString(4, "INVENTORY");
-			statement.setInt(5, 0);
-			statement.setInt(6, 0);
-			statement.setInt(7, objectId);
-			statement.setInt(8, 0);
-			statement.setInt(9, 0);
-			statement.setInt(10, -1);
-			statement.setLong(11, 0);
-			statement.executeUpdate();
-			statement.close();
-		}
-		catch (SQLException e)
-		{
-			_log.severe("Could not update item char: " + e);
+				player.addItemToOffline(obj_id, reward.getId(), duple ? reward.getValue() * 2 : reward.getValue());
 		}
 	}
 }

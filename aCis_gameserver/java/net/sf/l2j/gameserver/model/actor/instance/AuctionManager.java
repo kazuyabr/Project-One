@@ -1,23 +1,17 @@
 package net.sf.l2j.gameserver.model.actor.instance;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import net.sf.l2j.L2DatabaseFactory;
 import net.sf.l2j.gameserver.data.ItemTable;
 import net.sf.l2j.gameserver.data.sql.AuctionTable;
-import net.sf.l2j.gameserver.idfactory.IdFactory;
 import net.sf.l2j.gameserver.model.World;
 import net.sf.l2j.gameserver.model.actor.Player;
 import net.sf.l2j.gameserver.model.actor.template.NpcTemplate;
 import net.sf.l2j.gameserver.model.entity.AuctionItem;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
-import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.network.serverpackets.InventoryUpdate;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 
@@ -27,13 +21,12 @@ import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
  */
 public class AuctionManager extends Folk
 {
-	public static final String ADD_ITEM = "INSERT INTO items (owner_id,item_id,count,loc,loc_data,enchant_level,object_id,custom_type1,custom_type2,mana_left,time) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
-	
 	public AuctionManager(int objectId, NpcTemplate template)
 	{
 		super(objectId, template);
 	}
 	
+	@SuppressWarnings("static-access")
 	@Override
 	public void onBypassFeedback(Player player, String command)
 	{
@@ -78,8 +71,8 @@ public class AuctionManager extends Folk
 				owner.addItem("auction", item.getCostId(), item.getCostCount(), null, true);
 				owner.sendMessage("You have sold an item in the Auction Shop.");
 			}
-			else
-				addItemToOffline(item.getOwnerId(), item.getCostId(), item.getCostCount());
+			else 
+				owner.addItemToOffline(item.getOwnerId(), item.getCostId(), item.getCostCount());
 			
 			ItemInstance i = player.addItem("auction", item.getItemId(), item.getCount(), this, true);
 			i.setEnchantLevel(item.getEnchant());
@@ -326,36 +319,6 @@ public class AuctionManager extends Folk
 		NpcHtmlMessage htm = new NpcHtmlMessage(getObjectId());
 		htm.setHtml(html);
 		player.sendPacket(htm);
-	}
-	
-	private static void addItemToOffline(int owner_id, int item_id, int count)
-	{
-		Item item = ItemTable.getInstance().getTemplate(item_id);
-		int objectId = IdFactory.getInstance().getNextId();
-		
-		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
-			PreparedStatement statement = con.prepareStatement(ADD_ITEM))
-		{
-			if (count > 1 && !item.isStackable())
-				return;
-			
-			statement.setInt(1, owner_id);
-			statement.setInt(2, item.getItemId());
-			statement.setInt(3, count);
-			statement.setString(4, "INVENTORY");
-			statement.setInt(5, 0);
-			statement.setInt(6, 0);
-			statement.setInt(7, objectId);
-			statement.setInt(8, 0);
-			statement.setInt(9, 0);
-			statement.setInt(10, -1);
-			statement.setLong(11, 0);
-			statement.executeUpdate();
-		}
-		catch (SQLException e)
-		{
-			LOGGER.info("Could not update item char: " + e);
-		}
 	}
 	
 	private void showAuction(Player player, int page, String search)

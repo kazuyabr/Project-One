@@ -8,7 +8,7 @@
 		<stat name="isNoSummonFriend" val="false" />
 		<stat name="isFlagEnabled" val="true" />
 		<stat name="isHealEnabled" val="true" />
-		<stat name="duration" val="5" /> <!-- minutes -->
+		<stat name="duration" val="0" /> <!-- minutes -->
 		<stat name="reviveDelay" val="5" /> <!-- seconds -->
 		<stat name="restrictedItems" val="6611;6612" />
 		<spawn x="73890" y="142656" z="-3778" />
@@ -21,7 +21,7 @@
 		<stat name="isNoSummonFriend" val="false" />
 		<stat name="isFlagEnabled" val="true" />
 		<stat name="isHealEnabled" val="true" />
-		<stat name="duration" val="5" /> <!-- minutes -->
+		<stat name="duration" val="0" /> <!-- minutes -->
 		<stat name="reviveDelay" val="5" /> <!-- seconds -->
 		<stat name="restrictedItems" val="6611;6612" />
 		<spawn x="-86979" y="142402" z="-3643" />

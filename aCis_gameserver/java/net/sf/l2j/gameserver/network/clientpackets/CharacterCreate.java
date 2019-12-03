@@ -6,6 +6,7 @@ import java.util.Date;
 import net.sf.l2j.commons.lang.StringUtil;
 
 import net.sf.l2j.Config;
+import net.sf.l2j.gameserver.data.ItemTable;
 import net.sf.l2j.gameserver.data.SkillTable;
 import net.sf.l2j.gameserver.data.sql.PlayerInfoTable;
 import net.sf.l2j.gameserver.data.xml.NpcData;
@@ -23,6 +24,7 @@ import net.sf.l2j.gameserver.model.actor.template.PlayerTemplate;
 import net.sf.l2j.gameserver.model.holder.ItemTemplateHolder;
 import net.sf.l2j.gameserver.model.holder.skillnode.GeneralSkillNode;
 import net.sf.l2j.gameserver.model.item.instance.ItemInstance;
+import net.sf.l2j.gameserver.model.item.kind.Item;
 import net.sf.l2j.gameserver.network.serverpackets.CharCreateFail;
 import net.sf.l2j.gameserver.network.serverpackets.CharCreateOk;
 import net.sf.l2j.gameserver.network.serverpackets.CharSelectInfo;
@@ -32,6 +34,9 @@ import net.sf.l2j.gameserver.scripting.Quest;
 @SuppressWarnings("unused")
 public final class CharacterCreate extends L2GameClientPacket
 {
+	private static final String ACTIVED = "<font color=00FF00>ON</font>";
+	private static final String DESATIVED = "<font color=FF0000>OFF</font>";
+	
 	private String _name;
 	private int _race;
 	private byte _sex;
@@ -159,27 +164,38 @@ public final class CharacterCreate extends L2GameClientPacket
 		
 		// Add starting buffs.
 		for (int buffId : template.getBuffIds())
-			SkillTable.getInstance().getInfo(buffId, SkillTable.getInstance().getMaxLevel(buffId)).getEffects(player, player);
+		{
+			if (template.isBuffIds())
+				SkillTable.getInstance().getInfo(buffId, SkillTable.getInstance().getMaxLevel(buffId)).getEffects(player, player);
+		}
 		
 		// Add vip
 		if (template.getVip() > 0)
-		{
 			AdminVip.doVip(player, template.getVip());
-			final NpcHtmlMessage html = new NpcHtmlMessage(0);
-			html.setFile("data/html/start.htm");
-			html.replace("%name%", player.getName());
-			html.replace("%vip%", template.getVip());
-			html.replace("%level%", template.getLevel());
-			html.replace("%sp%", template.getSp());
-			getClient().sendPacket(html);
-		}
-		else
+
+		// show info
+		final NpcHtmlMessage html = new NpcHtmlMessage(0);
+		final StringBuilder sbItems = new StringBuilder();
+
+		html.setFile("data/html/newchar.htm");
+		html.replace("%name%", player.getName());
+		html.replace("%vip%", player.getTemplate().getVip());
+		html.replace("%level%", player.getTemplate().getLevel());
+		html.replace("%sp%", player.getTemplate().getSp());
+		html.replace("%buff%", player.getTemplate().isBuffIds() ? ACTIVED : DESATIVED);
+		
+
+		for (ItemTemplateHolder holder : player.getTemplate().getItems())
 		{
-			final NpcHtmlMessage html = new NpcHtmlMessage(0);
-			html.setFile("data/html/end.htm");
-			html.replace("%name%", player.getName());
-			getClient().sendPacket(html);
+			final Item item = ItemTable.getInstance().getTemplate(holder.getId());
+			sbItems.append("<table width=280 bgcolor=000000><tr>");
+			sbItems.append("<td width=44 height=41 align=center><table bgcolor=FFFFFF cellpadding=6 cellspacing=\"-5\"><tr><td><button width=32 height=32 back=" + item.getIcon() + " fore=" + item.getIcon() + "></td></tr></table></td>");
+			sbItems.append("<td width=236>" + item.getName() + "<br1><font color=B09878>Item Amount : " + holder.getValue() + "</font></td>");
+			sbItems.append("</tr></table><img src=L2UI.SquareGray width=280 height=1>");
 		}
+		
+		html.replace("%items%", sbItems.toString());
+		getClient().sendPacket(html);
 		
 		// Register shortcuts.
 		player.getShortcutList().addShortcut(new Shortcut(0, 0, ShortcutType.ACTION, 2, -1, 1)); // attack shortcut
@@ -222,7 +238,7 @@ public final class CharacterCreate extends L2GameClientPacket
 					quest.newQuestState(player).setState(Quest.STATE_STARTED);
 			}
 		}
-
+		
 		player.setOnlineStatus(true, false);
 		player.deleteMe();
 		

@@ -3,6 +3,7 @@ package net.sf.l2j.gameserver.model.actor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -89,6 +90,7 @@ import net.sf.l2j.gameserver.geoengine.GeoEngine;
 import net.sf.l2j.gameserver.handler.IItemHandler;
 import net.sf.l2j.gameserver.handler.ItemHandler;
 import net.sf.l2j.gameserver.handler.admincommandhandlers.AdminEditChar;
+import net.sf.l2j.gameserver.idfactory.IdFactory;
 import net.sf.l2j.gameserver.model.AccessLevel;
 import net.sf.l2j.gameserver.model.L2Effect;
 import net.sf.l2j.gameserver.model.L2Skill;
@@ -296,6 +298,8 @@ public final class Player extends Playable
 	
 	private static final String DELETE_RECIPEBOOK = "DELETE FROM character_recipebook WHERE charId=?";
 	private static final String SAVE_RECIPEBOOK = "INSERT INTO character_recipebook (charId, recipeId) values(?,?)";
+
+	public static final String ADD_ITEM = "INSERT INTO items (owner_id,item_id,count,loc,loc_data,enchant_level,object_id,custom_type1,custom_type2,mana_left,time) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 	
 	public static final int REQUEST_TIMEOUT = 15;
 	
@@ -9883,5 +9887,32 @@ public final class Player extends Playable
 		getMemos().set("cafe_points", newAmount);
 		sendPacket(SystemMessage.getSystemMessage(SystemMessageId.USING_S1_PCPOINT).addNumber(count));
 		sendPacket(new ExPCCafePointInfo(newAmount, -count, PcCafeType.CONSUME));
+	}
+
+	public static void addItemToOffline(int owner_id, int item_id, int count)
+	{
+		final Item item = ItemTable.getInstance().getTemplate(item_id);
+		int objectId = IdFactory.getInstance().getNextId();
+		
+		try (Connection con = L2DatabaseFactory.getInstance().getConnection();
+			PreparedStatement statement = con.prepareStatement(ADD_ITEM))
+		{
+			if (count > 1 && !item.isStackable())
+				return;
+			
+			statement.setInt(1, owner_id);
+			statement.setInt(2, item.getItemId());
+			statement.setInt(3, count);
+			statement.setString(4, "INVENTORY");
+			statement.setInt(5, 0);
+			statement.setInt(6, 0);
+			statement.setInt(7, objectId);
+			statement.setInt(8, 0);
+			statement.setInt(9, 0);
+			statement.setInt(10, -1);
+			statement.setLong(11, 0);
+			statement.executeUpdate();
+		}
+		catch (SQLException e){}
 	}
 }

@@ -3,7 +3,6 @@ package net.sf.l2j.gameserver.model.actor.template;
 import java.util.List;
 
 import net.sf.l2j.commons.random.Rnd;
-import net.sf.l2j.commons.util.ArraysUtil;
 import net.sf.l2j.commons.util.StatsSet;
 
 import net.sf.l2j.gameserver.data.ItemTable;
@@ -43,6 +42,7 @@ public class PlayerTemplate extends CreatureTemplate
 	
 	private final List<ItemTemplateHolder> _items;
 	private final List<GeneralSkillNode> _skills;
+	private final boolean _isbuffs;
 	private final int[] _buffs;
 
 	private final String _title;
@@ -75,7 +75,8 @@ public class PlayerTemplate extends CreatureTemplate
 		
 		_items = set.getList("items");
 		_skills = set.getList("skills");
-		_buffs = set.getIntegerArray("buffs", ArraysUtil.EMPTY_INT_ARRAY);
+		_isbuffs = set.getBool("isbuffs", false);
+		_buffs = set.getIntegerArray("buffs");
 		
 		_level = set.getInteger("level", 1);
 		_sp = set.getInteger("sp", 1);
@@ -200,6 +201,11 @@ public class PlayerTemplate extends CreatureTemplate
 	{
 		return _buffs;
 	}
+ 	
+	public final boolean isBuffIds()
+ 	{
+		return _isbuffs;
+ 	}
  	
 	/**
 	 * Find if the skill exists on skill tree.

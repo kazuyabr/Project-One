@@ -48,7 +48,6 @@ import net.sf.l2j.gameserver.network.serverpackets.Die;
 import net.sf.l2j.gameserver.network.serverpackets.EtcStatusUpdate;
 import net.sf.l2j.gameserver.network.serverpackets.ExMailArrived;
 import net.sf.l2j.gameserver.network.serverpackets.ExPCCafePointInfo;
-import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.network.serverpackets.ExStorageMaxCount;
 import net.sf.l2j.gameserver.network.serverpackets.FriendList;
 import net.sf.l2j.gameserver.network.serverpackets.HennaInfo;
@@ -317,9 +316,6 @@ public class EnterWorld extends L2GameClientPacket
 			html.setFile("data/html/servnews.htm");
 			sendPacket(html);
 		}
-		
-		if (clan != null)
-			player.sendPacket(new ExShowScreenMessage(clan.getNotice(), 15000, 0x02, true));	
 		
 		PetitionManager.getInstance().checkPetitionMessages(player);
 		
