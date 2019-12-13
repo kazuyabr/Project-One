@@ -56,6 +56,7 @@ public class RaidBosInfo extends Folk
 		NpcHtmlMessage html = new NpcHtmlMessage(getObjectId());
 		html.setFile(name);
 		html.replace("%objectId%", getObjectId());
+		html.replace("%npcName%", getName());
 		player.sendPacket(html);
 		player.sendPacket(ActionFailed.STATIC_PACKET);
 	}
@@ -160,7 +161,7 @@ public class RaidBosInfo extends Folk
 		sb.append("</table>");
 		sb.append("<br>");
 		sb.append("<table width=\"256\">");
-		sb.append("<tr><td width=\"256\" align=\"center\">L2jBrasil</td></tr>");
+		sb.append("<tr><td width=\"256\" align=\"center\">L2EUA</td></tr>");
 		sb.append("</table>");
 		sb.append("</center>");
 		sb.append("</body>");
@@ -203,20 +204,21 @@ public class RaidBosInfo extends Folk
 		sb.append("<tr><td width=\"224\" align=\"center\">Raid Boss Drops</td></tr>");
 		sb.append("</table>");
 		sb.append("<br>");
-		sb.append("<table width=\"256\">");
 		
 		for (int itemId : drops)
 		{
-			Item item = ItemTable.getInstance().getTemplate(itemId);
-			String itemName = item.getName();
+			final Item item = ItemTable.getInstance().getTemplate(itemId);
+			String name = item.getName();
 			
-			if (itemName.length() > 47)
-				itemName = itemName.substring(0, 47) + "...";
+			if (name.length() >= 43)
+				name = name.substring(0, 40) + "...";
 			
-			sb.append("<tr><td width=\"256\" align=\"center\">" + itemName + "</td></tr>");
+			sb.append("<table width=280 bgcolor=000000><tr>");
+			sb.append("<td width=44 height=41 align=center><table bgcolor=FFFFFF cellpadding=6 cellspacing=\"-5\"><tr><td><button width=32 height=32 back=" + item.getIcon() + " fore=" + item.getIcon() + "></td></tr></table></td>");
+			sb.append("<td width=236>" + name + "</td>");
+			sb.append("</tr></table><img src=L2UI.SquareGray width=280 height=1>");
 		}
 		
-		sb.append("</table>");
 		sb.append("<br>");
 		sb.append("<table width=\"64\" cellspacing=\"2\">");
 		sb.append("<tr>");
@@ -240,7 +242,7 @@ public class RaidBosInfo extends Folk
 		sb.append("</table>");
 		sb.append("<br>");
 		sb.append("<table width=\"256\">");
-		sb.append("<tr><td width=\"256\" align=\"center\">L2jBrasil</td></tr>");
+		sb.append("<tr><td width=\"256\" align=\"center\">L2EUA</td></tr>");
 		sb.append("</table>");
 		sb.append("</center>");
 		sb.append("</body>");

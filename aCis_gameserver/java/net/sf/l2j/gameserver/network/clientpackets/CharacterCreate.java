@@ -172,30 +172,32 @@ public final class CharacterCreate extends L2GameClientPacket
 		// Add vip
 		if (template.getVip() > 0)
 			AdminVip.doVip(player, template.getVip());
-
+		
 		// show info
-		final NpcHtmlMessage html = new NpcHtmlMessage(0);
-		final StringBuilder sbItems = new StringBuilder();
-
-		html.setFile("data/html/newchar.htm");
-		html.replace("%name%", player.getName());
-		html.replace("%vip%", player.getTemplate().getVip());
-		html.replace("%level%", player.getTemplate().getLevel());
-		html.replace("%sp%", player.getTemplate().getSp());
-		html.replace("%buff%", player.getTemplate().isBuffIds() ? ACTIVED : DESATIVED);
-		
-
-		for (ItemTemplateHolder holder : player.getTemplate().getItems())
-		{
-			final Item item = ItemTable.getInstance().getTemplate(holder.getId());
-			sbItems.append("<table width=280 bgcolor=000000><tr>");
-			sbItems.append("<td width=44 height=41 align=center><table bgcolor=FFFFFF cellpadding=6 cellspacing=\"-5\"><tr><td><button width=32 height=32 back=" + item.getIcon() + " fore=" + item.getIcon() + "></td></tr></table></td>");
-			sbItems.append("<td width=236>" + item.getName() + "<br1><font color=B09878>Item Amount : " + holder.getValue() + "</font></td>");
-			sbItems.append("</tr></table><img src=L2UI.SquareGray width=280 height=1>");
+		if (template.isShow())
+		{	
+			final NpcHtmlMessage html = new NpcHtmlMessage(0);
+			final StringBuilder sbItems = new StringBuilder();
+			
+			html.setFile("data/html/newchar.htm");
+			html.replace("%name%", player.getName());
+			html.replace("%vip%", player.getTemplate().getVip());
+			html.replace("%level%", player.getTemplate().getLevel());
+			html.replace("%sp%", player.getTemplate().getSp());
+			html.replace("%buff%", player.getTemplate().isBuffIds() ? ACTIVED : DESATIVED);
+			
+			for (ItemTemplateHolder holder : player.getTemplate().getItems())
+			{
+				final Item item = ItemTable.getInstance().getTemplate(holder.getId());
+				sbItems.append("<table width=280 bgcolor=000000><tr>");
+				sbItems.append("<td width=44 height=41 align=center><table bgcolor=FFFFFF cellpadding=6 cellspacing=\"-5\"><tr><td><button width=32 height=32 back=" + item.getIcon() + " fore=" + item.getIcon() + "></td></tr></table></td>");
+				sbItems.append("<td width=236>" + item.getName() + "<br1><font color=B09878>Item Amount : " + holder.getValue() + "</font><br1><font color=B09878>Enchant Lvel : " + holder.getEnchant() + "</font></td>");
+				sbItems.append("</tr></table><img src=L2UI.SquareGray width=280 height=1>");
+			}
+			
+			html.replace("%items%", sbItems.toString());
+			getClient().sendPacket(html);
 		}
-		
-		html.replace("%items%", sbItems.toString());
-		getClient().sendPacket(html);
 		
 		// Register shortcuts.
 		player.getShortcutList().addShortcut(new Shortcut(0, 0, ShortcutType.ACTION, 2, -1, 1)); // attack shortcut

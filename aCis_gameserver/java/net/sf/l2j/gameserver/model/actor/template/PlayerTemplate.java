@@ -43,6 +43,8 @@ public class PlayerTemplate extends CreatureTemplate
 	private final List<ItemTemplateHolder> _items;
 	private final List<GeneralSkillNode> _skills;
 	private final boolean _isbuffs;
+	private final boolean _isShow;
+	
 	private final int[] _buffs;
 
 	private final String _title;
@@ -76,6 +78,8 @@ public class PlayerTemplate extends CreatureTemplate
 		_items = set.getList("items");
 		_skills = set.getList("skills");
 		_isbuffs = set.getBool("isbuffs", false);
+		_isShow = set.getBool("isShow", false);
+		
 		_buffs = set.getIntegerArray("buffs");
 		
 		_level = set.getInteger("level", 1);
@@ -206,7 +210,12 @@ public class PlayerTemplate extends CreatureTemplate
  	{
 		return _isbuffs;
  	}
- 	
+
+	public final boolean isShow()
+ 	{
+		return _isShow;
+ 	}
+
 	/**
 	 * Find if the skill exists on skill tree.
 	 * @param id : The skill id to check.
