@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<skill id="7069" levels="1" name="Blessed Necklace of Valakas">
+		<set name="magicLvl" val="75" />
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<add order="0x40" stat="maxHp" val="645" />
+			<mul order="0x30" stat="pAtk" val="1.10" />
+			<mul order="0x30" stat="mAtk" val="1.20" />
+			<mul order="0x30" stat="mCritRate" val="5" />
+			<addMul order="0x40" stat="fireRes" val="18" />
+			<addMul order="0x40" stat="sleepVuln" val="81" />
+			<mul order="0x30" stat="pReuse" val="0.11" />
+			<mul order="0x30" stat="mReuse" val="0.11" />
+			<add order="0x40" stat="reflectDam" val="7" />
+		</for>
+	</skill>
+	<skill id="7070" levels="1" name="Blessed Earring of Antharas">
+		<set name="magicLvl" val="75" />
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="earthRes" val="17" />
+			<addMul order="0x40" stat="bleedVuln" val="82" />
+			<addMul order="0x40" stat="stunVuln" val="62" />
+			<addMul order="0x40" stat="derangementVuln" val="62" />
+			<mul order="0x30" stat="gainHp" val="1.5" />
+			<mul order="0x30" stat="MagicalMpConsumeRate" val="0.96" />
+			<mul order="0x30" stat="PhysicalMpConsumeRate" val="0.96" />	
+			<add order="0x40" stat="absorbDam" val="6" /> <!-- absorb 4% HP from damage inflicted on enemies -->
+		</for>
+	</skill>
+	<skill id="7071" levels="1" name="Blessed Earring of Zaken">
+		<set name="magicLvl" val="75" />
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="bleedVuln" val="62" />
+			<addMul order="0x40" stat="stunVuln" val="42" />
+			<addMul order="0x40" stat="derangementVuln" val="42" />
+			<mul order="0x30" stat="gainHp" val="1.5" />
+			<add order="0x40" stat="absorbDam" val="6" />
+		</for>
+	</skill>
+	<skill id="7072" levels="1" name="Blessed Ring of Baium">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="poisonVuln" val="82" />
+			<addMul order="0x40" stat="rootVuln" val="62" />
+			<add order="0x40" stat="accCombat" val="6" />
+			<mul order="0x30" stat="cAtk" val="1.18" />
+			<mul order="0x30" stat="pAtkSpd" val="1.08" />
+			<mul order="0x30" stat="mAtkSpd" val="1.08" />
+		</for>
+	</skill>
+		<skill id="7073" levels="1" name="Blessed Ring of Ant Queen">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="poisonVuln" val="62" />
+			<addMul order="0x40" stat="rootVuln" val="42" />
+			<add order="0x40" stat="accCombat" val="6" />
+			<mul order="0x30" stat="cAtk" val="12" />
+		</for>
+	</skill>
+		<skill id="7074" levels="1" name="Blessed Earring of Orfen">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="bleedVuln" val="42" />
+			<mul order="0x30" stat="gainHp" val="1.08" />
+		</for>
+	</skill>
+		<skill id="7075" levels="1" name="Blessed Frintezza's Necklace">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="sleepVuln" val="32" />
+			<addMul order="0x40" stat="poisonVuln" val="52" />
+			<addMul order="0x40" stat="bleedVuln" val="52" />
+			<addMul order="0x40" stat="paralyzeVuln" val="32" />
+			<addMul order="0x40" stat="stunVuln" val="32" />
+			<addMul order="0x40" stat="darkRes" val="17" />
+			<add order="0x40" stat="reflectDam" val="7" />
+			<mul order="0x30" stat="mReuse" val="0.11" />
+			<mul order="0x30" stat="pReuse" val="0.11" />
+		</for>
+	</skill>
+		<skill id="7076" levels="1" name="Blessed Ring of Core">
+		<set name="target" val="TARGET_SELF"/>
+		<set name="skillType" val="BUFF"/>
+		<set name="operateType" val="OP_PASSIVE"/>
+		<for>
+			<addMul order="0x40" stat="poisonVuln" val="42" />
+			<add order="0x40" stat="accCombat" val="4" />
+		</for>
+	</skill>
+</list>

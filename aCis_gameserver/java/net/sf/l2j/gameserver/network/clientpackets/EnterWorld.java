@@ -48,6 +48,7 @@ import net.sf.l2j.gameserver.network.serverpackets.Die;
 import net.sf.l2j.gameserver.network.serverpackets.EtcStatusUpdate;
 import net.sf.l2j.gameserver.network.serverpackets.ExMailArrived;
 import net.sf.l2j.gameserver.network.serverpackets.ExPCCafePointInfo;
+import net.sf.l2j.gameserver.network.serverpackets.ExShowScreenMessage;
 import net.sf.l2j.gameserver.network.serverpackets.ExStorageMaxCount;
 import net.sf.l2j.gameserver.network.serverpackets.FriendList;
 import net.sf.l2j.gameserver.network.serverpackets.HennaInfo;
@@ -316,7 +317,7 @@ public class EnterWorld extends L2GameClientPacket
 			html.setFile("data/html/servnews.htm");
 			sendPacket(html);
 		}
-		
+
 		PetitionManager.getInstance().checkPetitionMessages(player);
 		
 		player.onPlayerEnter();
@@ -390,7 +391,10 @@ public class EnterWorld extends L2GameClientPacket
 		
 		// Announce New Message On Enter
 		if (Config.PM_MESSAGE_ON_START)
-			sendPacket(new CreatureSay(2, Say2.HERO_VOICE, Config.PM_TEXT1, Config.PM_SERVER_NAME));
+		{
+			sendPacket(new CreatureSay(2, Say2.HERO_VOICE, "", Config.PM_TEXT1));
+			sendPacket(new CreatureSay(2, Say2.HERO_VOICE, "", Config.PM_SERVER_NAME));
+		}
 		
 		if (Config.TVT_ENABLE)
 			player.sendMessage("[Evento TvT]: Próximo evento em " + Config.EVENT_DELAY + " minuto(s)");
@@ -436,7 +440,21 @@ public class EnterWorld extends L2GameClientPacket
 				player.sendMessage("Seu Hero terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("heroTime", 0))) + ".");
 			}
 		}
-		
+
+		if (player.getMemos().getLong("noticeTime", 0) > 0)
+		{
+			long now = Calendar.getInstance().getTimeInMillis();
+			long endDay = player.getMemos().getLong("noticeTime");
+			
+			if (now > endDay)
+				player.setNotice(false);
+			else
+				player.setNotice(true);
+		}
+
+		if (clan != null && clan.isNoticeEnabled())
+			player.sendPacket(new ExShowScreenMessage(clan.getNotice(), 15000, 0x02, true));	
+ 		
 		ZoneTaskManager.getInstance().onEnter(player);
 		
 		if (Config.PCB_INTERVAL > 0)

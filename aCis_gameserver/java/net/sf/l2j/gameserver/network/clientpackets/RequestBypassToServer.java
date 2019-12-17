@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.StringTokenizer;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import net.sf.l2j.Config;
@@ -22,15 +23,18 @@ import net.sf.l2j.gameserver.model.entity.event.imp.Event;
 import net.sf.l2j.gameserver.model.olympiad.OlympiadManager;
 import net.sf.l2j.gameserver.model.pledge.Clan;
 import net.sf.l2j.gameserver.network.FloodProtectors;
+import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.FloodProtectors.Action;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.sf.l2j.gameserver.scripting.QuestState;
+import net.sf.l2j.gameserver.taskmanager.NoticeTaskManager;
 
 public final class RequestBypassToServer extends L2GameClientPacket
 {
 	private static final Logger GMAUDIT_LOG = Logger.getLogger("gmaudit");
+	private static final Logger REPORT_LOG = Logger.getLogger("report");
 	
 	private String _command;
 	
@@ -200,7 +204,13 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		}
 		else if (_command.startsWith("clan_notice"))
 		{
+			StringTokenizer st = new StringTokenizer(_command);
 			String announce = _command.substring(9);
+			int duration = 5;
+			
+			if (st.hasMoreTokens())
+				duration = Integer.parseInt(st.nextToken());
+			
 			final Clan clan = player.getClan();
 			if (clan != null)
 			{
@@ -216,7 +226,17 @@ public final class RequestBypassToServer extends L2GameClientPacket
 					return;
 				}
 				
-				clan.setNoticeAndStore(announce);
+				player.setNotice(true);
+				NoticeTaskManager.getInstance().add(player);
+				
+				long remainingTime = player.getMemos().getLong("noticeTime", 0);
+				if (remainingTime > 0)
+					player.getMemos().set("noticeTime", remainingTime + TimeUnit.MINUTES.toMillis(duration));
+				else
+				{
+					player.getMemos().set("noticeTime", System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(duration));
+					player.setAnnounce(announce);
+				}
 			}
 		}
 		else if (_command.startsWith("submitpin"))
@@ -297,6 +317,52 @@ public final class RequestBypassToServer extends L2GameClientPacket
 				return;
 			}
 			player.checkCode("Fail");
+		}
+		else if (_command.startsWith("send_report"))
+		{
+			StringTokenizer st = new StringTokenizer(_command);
+			st.nextToken();
+			
+			String msg = "";
+			String type = st.nextToken();
+			
+			GameClient info = player.getClient().getConnection().getClient();
+			
+			try
+			{
+				while (st.hasMoreTokens())
+					msg = msg + st.nextToken() + " ";
+				
+				if (msg.equals(""))
+				{
+					player.sendMessage("A caixa de mensagem não pode estar vazia.");
+					return;
+				}
+				
+				switch (type)
+				{
+					case "Armaduras":
+						break;
+					case "Boss":
+						break;
+					case "Skills":
+						break;
+					case "Quests":
+						break;
+					case "Other":
+						break;		
+				}
+				
+				REPORT_LOG.info("Character Info: " + info + "\r\nBug Type: " + type + "\r\nMessage: " + msg);
+				player.sendMessage("Relatério enviado. Os Gms irão verifica-la em breve, obrigado.");
+				
+				for (Player allgms : AdminData.getInstance().getAllGms(true))
+					allgms.sendMessage("Report Manager: "+ player.getName() + " enviou um relatório de bug.");
+			}
+			catch (Exception e)
+			{
+				player.sendMessage("Algo deu errado, tente novamente.");
+			}
 		}
 	}
 }

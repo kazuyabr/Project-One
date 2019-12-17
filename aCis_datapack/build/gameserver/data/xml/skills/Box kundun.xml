@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<list>
+	<skill id="7065" levels="1" name="Box Kundun">
+		<table name="#extractableItems">
+			9209,1,11;9210,300,11;9211,300,11;9212,400,11;9213,300,11;9214,300,11;9215,300,11;9216,300,11;1538,5,5;3936,3,5;6577,1,1;6578,1,1
+		</table>
+		<set name="capsuled_items_skill" val="#extractableItems" />
+		<set name="target" val="TARGET_SELF" />
+		<set name="skillType" val="EXTRACTABLE" />
+		<set name="operateType" val="OP_ACTIVE" />
+		<cond msgId="129">
+			<and>
+				<player invSize="10" />
+				<player weight="80" />
+			</and>
+		</cond>
+	</skill>
+</list>

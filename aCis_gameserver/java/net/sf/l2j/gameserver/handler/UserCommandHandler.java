@@ -19,6 +19,7 @@ import net.sf.l2j.gameserver.handler.usercommandhandlers.Mount;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.OlympiadStat;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.PartyInfo;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.Pin;
+import net.sf.l2j.gameserver.handler.usercommandhandlers.Report;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.SiegeStatus;
 import net.sf.l2j.gameserver.handler.usercommandhandlers.Time;
 
@@ -44,6 +45,7 @@ public class UserCommandHandler
 		registerHandler(new OlympiadStat());
 		registerHandler(new PartyInfo());
 		registerHandler(new Pin());
+		registerHandler(new Report());
 		registerHandler(new SiegeStatus());
 		registerHandler(new Time());
 	}

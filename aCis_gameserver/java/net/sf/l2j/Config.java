@@ -1211,7 +1211,7 @@ public final class Config
 		ANNOUNCE_TOP_PK_ENTER_BY_PLAYER_MSG = players.getProperty("AnnounceTopPkLoginByPlayerMsg", "The Hero %player% from %classe% is now online.");
 
 		PM_MESSAGE_ON_START = players.getProperty("PMWelcomeShow", false);
-		PM_SERVER_NAME = players.getProperty("PMServerName", "La2Kamael");
+		PM_SERVER_NAME = players.getProperty("PMServerName", "L2jOne");
 		PM_TEXT1 = players.getProperty("PMText1", "Have Fun and Nice Stay on");
 		
 		ENABLE_BOSS_DEFEATED_MSG = players.getProperty("EnableBossDefeatedMsg", false);
