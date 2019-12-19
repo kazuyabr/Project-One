@@ -257,7 +257,6 @@ import net.sf.l2j.gameserver.taskmanager.AttackStanceTaskManager;
 import net.sf.l2j.gameserver.taskmanager.GameTimeTaskManager;
 import net.sf.l2j.gameserver.taskmanager.HeroTaskManager;
 import net.sf.l2j.gameserver.taskmanager.ItemsOnGroundTaskManager;
-import net.sf.l2j.gameserver.taskmanager.NoticeTaskManager;
 import net.sf.l2j.gameserver.taskmanager.PvpFlagTaskManager;
 import net.sf.l2j.gameserver.taskmanager.ShadowItemTaskManager;
 import net.sf.l2j.gameserver.taskmanager.VipTaskManager;
@@ -418,9 +417,6 @@ public final class Player extends Playable
 	private boolean _isVip;
 	private boolean _isAio;
 	
-	private boolean _isNotice;
-	private String _notice;
-	 
 	private Folk _currentFolk;
 	
 	private int _questNpcObject;
@@ -8121,9 +8117,6 @@ public final class Player extends Playable
 		if (isHero())
 			HeroTaskManager.getInstance().add(this);
 		
-		if (isNotice())
-			NoticeTaskManager.getInstance().add(this);
-		
 		// Teleport player if the Seven Signs period isn't the good one, or if the player isn't in a cabal.
 		if (isIn7sDungeon() && !isGM())
 		{
@@ -8517,7 +8510,6 @@ public final class Player extends Playable
 			AioTaskManager.getInstance().remove(this);
 			VipTaskManager.getInstance().remove(this);
 			HeroTaskManager.getInstance().remove(this);
-			NoticeTaskManager.getInstance().remove(this);
 			
 			// Remove participant of event
 			Event event = getEvent();
@@ -9922,39 +9914,5 @@ public final class Player extends Playable
 			statement.executeUpdate();
 		}
 		catch (SQLException e){}
-	}
-	
-	public boolean isNotice()
-	{
-		return _isNotice;	
-	}
-	
-	public String getAnnounce()
-	{
-		return _notice;
-	}
-		
-	public void setAnnounce(String notice)
-	{
-		_notice = getMemos().getString("Clan notice", notice);
-	}
-		
-	public void setNotice(boolean notice)
-	{
-		final String announce = "";
-		
-		if (notice)
-		{
-			// test for notice clan
-		}
-		else
-		{
-			NoticeTaskManager.getInstance().remove(this);
-			getMemos().set("noticeTime", 0);
-			
-			setAnnounce(announce);
-		}
-		
-		_isNotice = notice;
 	}
 }

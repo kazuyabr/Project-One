@@ -43,7 +43,6 @@ import net.sf.l2j.gameserver.model.pledge.SubPledge;
 import net.sf.l2j.gameserver.network.GameClient.GameClientState;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
-import net.sf.l2j.gameserver.network.serverpackets.CreatureSay;
 import net.sf.l2j.gameserver.network.serverpackets.Die;
 import net.sf.l2j.gameserver.network.serverpackets.EtcStatusUpdate;
 import net.sf.l2j.gameserver.network.serverpackets.ExMailArrived;
@@ -177,6 +176,8 @@ public class EnterWorld extends L2GameClientPacket
 			
 			player.sendPacket(new UserInfo(player));
 			player.sendPacket(new PledgeStatusChanged(clan));
+			
+			player.sendPacket(new ExShowScreenMessage(clan.getNotice(), 15000, 0x02, true));	
 		}
 		
 		// Updating Seal of Strife Buff/Debuff
@@ -389,13 +390,6 @@ public class EnterWorld extends L2GameClientPacket
 		if (player.isVip() && Config.ANNOUNCE_VIP_ENTER)
 			World.announceToOnlinePlayers(player.getClan() != null ? Config.ANNOUNCE_VIP_ENTER_BY_CLAN_MEMBER_MSG.replace("%player%", player.getName()).replace("%clan%", player.getClan().getName()) : Config.ANNOUNCE_VIP_ENTER_BY_PLAYER_MSG.replace("%player%", player.getName()), true);
 		
-		// Announce New Message On Enter
-		if (Config.PM_MESSAGE_ON_START)
-		{
-			sendPacket(new CreatureSay(2, Say2.HERO_VOICE, "", Config.PM_TEXT1));
-			sendPacket(new CreatureSay(2, Say2.HERO_VOICE, "", Config.PM_SERVER_NAME));
-		}
-		
 		if (Config.TVT_ENABLE)
 			player.sendMessage("[Evento TvT]: Próximo evento em " + Config.EVENT_DELAY + " minuto(s)");
 		
@@ -440,20 +434,6 @@ public class EnterWorld extends L2GameClientPacket
 				player.sendMessage("Seu Hero terminam em " + new SimpleDateFormat("MMM dd, yyyy HH:mm").format(new Date(player.getMemos().getLong("heroTime", 0))) + ".");
 			}
 		}
-
-		if (player.getMemos().getLong("noticeTime", 0) > 0)
-		{
-			long now = Calendar.getInstance().getTimeInMillis();
-			long endDay = player.getMemos().getLong("noticeTime");
-			
-			if (now > endDay)
-				player.setNotice(false);
-			else
-				player.setNotice(true);
-		}
-
-		if (clan != null && clan.isNoticeEnabled())
-			player.sendPacket(new ExShowScreenMessage(clan.getNotice(), 15000, 0x02, true));	
  		
 		ZoneTaskManager.getInstance().onEnter(player);
 		

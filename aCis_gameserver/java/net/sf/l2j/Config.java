@@ -415,8 +415,7 @@ public final class Config
 	public static boolean ALT_GAME_DELEVEL;
 	public static int DEATH_PENALTY_CHANCE;
 	public static int CANCEL_SECONDS;
-	public static boolean ENABLE_RAIDBOSS_NOBLES;
-	public static int RAIDBOSS_NOBLES_ID;
+	public static int RAIDBOSS_NOBLES;
 	public static boolean ENABLE_SPREEKILLS;
 	
 	/** Messages */
@@ -436,10 +435,6 @@ public final class Config
 	public static String ANNOUNCE_TOP_PVP_ENTER_BY_PLAYER_MSG;
 	public static String ANNOUNCE_TOP_PK_ENTER_BY_CLAN_MEMBER_MSG;
 	public static String ANNOUNCE_TOP_PK_ENTER_BY_PLAYER_MSG;
-	
-	public static boolean PM_MESSAGE_ON_START;
-	public static String PM_SERVER_NAME;
-	public static String PM_TEXT1;
 	
 	public static boolean ENABLE_BOSS_DEFEATED_MSG;
 	public static String RAID_BOSS_DEFEATED_BY_CLAN_MEMBER_MSG;
@@ -733,7 +728,6 @@ public final class Config
 	public static boolean SERVER_NEWS;
 	public static int ZONE_TOWN;
 	public static boolean DISABLE_TUTORIAL;
-	public static boolean TRADE_REQUEST;
 	public static boolean ALLOW_WYVERN_RESTRITION_CITY;
 	public static RestrictionType STORE_RESTRICTION_TYPE;
 	public static RestrictionType SHOUT_RESTRICTION_TYPE;
@@ -1196,8 +1190,7 @@ public final class Config
 		ALT_GAME_DELEVEL = players.getProperty("Delevel", true);
 		DEATH_PENALTY_CHANCE = players.getProperty("DeathPenaltyChance", 20);
 		CANCEL_SECONDS = players.getProperty("CancelSeconds", 5);
-		ENABLE_RAIDBOSS_NOBLES = players.getProperty("FastNobles", false);
-		RAIDBOSS_NOBLES_ID = players.getProperty("RaidBossId", 0);
+		RAIDBOSS_NOBLES = players.getProperty("RaidBossId", 0);
 		ENABLE_SPREEKILLS = players.getProperty("EnableSpreeKills", false);
 		
 		ANNOUNCE_HERO_ONLY_BASECLASS = players.getProperty("AnnounceHero", false);
@@ -1210,10 +1203,6 @@ public final class Config
 		ANNOUNCE_TOP_PK_ENTER_BY_CLAN_MEMBER_MSG = players.getProperty("AnnounceTopPkLoginByClanMemberMsg", "The Hero %player% from %classe% and of the clan %clan% is now online.");
 		ANNOUNCE_TOP_PK_ENTER_BY_PLAYER_MSG = players.getProperty("AnnounceTopPkLoginByPlayerMsg", "The Hero %player% from %classe% is now online.");
 
-		PM_MESSAGE_ON_START = players.getProperty("PMWelcomeShow", false);
-		PM_SERVER_NAME = players.getProperty("PMServerName", "L2jOne");
-		PM_TEXT1 = players.getProperty("PMText1", "Have Fun and Nice Stay on");
-		
 		ENABLE_BOSS_DEFEATED_MSG = players.getProperty("EnableBossDefeatedMsg", false);
 		RAID_BOSS_DEFEATED_BY_CLAN_MEMBER_MSG = players.getProperty("RaidBossDefeatedByClanMemberMsg", "Raid Boss %raidboss% has been defeated by %player% of clan %clan%.");
 		RAID_BOSS_DEFEATED_BY_PLAYER_MSG = players.getProperty("RaidBossDefeatedByPlayerMsg", "Raid Boss %raidboss% has been defeated by %player%.");
@@ -1531,7 +1520,6 @@ public final class Config
 		SERVER_NEWS = server.getProperty("ShowServerNews", false);
 		DISABLE_TUTORIAL = server.getProperty("DisableTutorial", false);
 		
-		TRADE_REQUEST = server.getProperty("TradeRequest", false);
 		ALLOW_WYVERN_RESTRITION_CITY = server.getProperty("MountRequest", false);
 		SHOUT_RESTRICTION_TYPE = RestrictionType.valueOf(server.getProperty("ShoutRestrictionType", "NONE"));
 		TRADE_RESTRICTION_TYPE = RestrictionType.valueOf(server.getProperty("TradeRestrictionType", "NONE"));

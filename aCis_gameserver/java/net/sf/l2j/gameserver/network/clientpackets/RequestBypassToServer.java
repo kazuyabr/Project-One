@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.StringTokenizer;
-import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import net.sf.l2j.Config;
@@ -27,9 +26,9 @@ import net.sf.l2j.gameserver.network.GameClient;
 import net.sf.l2j.gameserver.network.FloodProtectors.Action;
 import net.sf.l2j.gameserver.network.SystemMessageId;
 import net.sf.l2j.gameserver.network.serverpackets.ActionFailed;
+import net.sf.l2j.gameserver.network.serverpackets.CreatureSay;
 import net.sf.l2j.gameserver.network.serverpackets.NpcHtmlMessage;
 import net.sf.l2j.gameserver.scripting.QuestState;
-import net.sf.l2j.gameserver.taskmanager.NoticeTaskManager;
 
 public final class RequestBypassToServer extends L2GameClientPacket
 {
@@ -204,40 +203,30 @@ public final class RequestBypassToServer extends L2GameClientPacket
 		}
 		else if (_command.startsWith("clan_notice"))
 		{
-			StringTokenizer st = new StringTokenizer(_command);
 			String announce = _command.substring(9);
-			int duration = 5;
-			
-			if (st.hasMoreTokens())
-				duration = Integer.parseInt(st.nextToken());
 			
 			final Clan clan = player.getClan();
-			if (clan != null)
-			{
+			if (clan == null)
+				return;
+			
 				if (!player.isClanLeader())
 				{
 					player.sendMessage("You not is Leader of clan "+ clan.getName() +".");
 					return;	
 				}
-				
-				if (clan.getLevel() < 5)
+				else if (clan.getLevel() < 5)
 				{
 					player.sendMessage("Your clan need to be Level 5.");
 					return;
 				}
-				
-				player.setNotice(true);
-				NoticeTaskManager.getInstance().add(player);
-				
-				long remainingTime = player.getMemos().getLong("noticeTime", 0);
-				if (remainingTime > 0)
-					player.getMemos().set("noticeTime", remainingTime + TimeUnit.MINUTES.toMillis(duration));
-				else
+				else if (announce.length() > 100)
 				{
-					player.getMemos().set("noticeTime", System.currentTimeMillis() + TimeUnit.MINUTES.toMillis(duration));
-					player.setAnnounce(announce);
+					player.sendMessage("Max Length: 100");
+					return;
 				}
-			}
+				
+				player.sendPacket(new CreatureSay(player.getObjectId(), Say2.CLAN, "Clan Announcement", announce));
+				clan.setNoticeAndStore(announce);
 		}
 		else if (_command.startsWith("submitpin"))
 		{

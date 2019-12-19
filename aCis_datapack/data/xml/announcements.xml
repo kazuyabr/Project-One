@@ -8,6 +8,8 @@
 @param Integer limit - limit of announces (used only if auto=true, 0 = unlimited) 
 --> 
 <list>
+	<announcement message="Seja bem vindo ao L2jOne" critical="true" delay="300"/>
+	<announcement message="Para reportar bug use o comando /report." critical="true" delay="300"/>
 	<announcement message="Patrocionio L2JCenter.com" critical="true" delay="300"/>
 	<announcement message="Apoio L2JBrasil.com" critical="true" delay="300"/>
 	<announcement message="Cupom10% : L2JONE" critical="true" delay="300"/>

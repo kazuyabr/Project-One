@@ -49,12 +49,6 @@ public final class TradeRequest extends L2GameClientPacket
 			return;
 		}
 
-		if (!Config.TRADE_REQUEST && player.isInCombat() || target.isInCombat() || player.isInParty() || target.isInParty())
-		{
-			player.sendMessage("Você não pode solicitar um comércio. Tente mais tarde.");	
-			return;					
-		}		
-		
 		// Alt game - Karma punishment
 		if (!Config.KARMA_PLAYER_CAN_TRADE && (player.getKarma() > 0 || target.getKarma() > 0))
 		{

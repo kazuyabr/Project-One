@@ -117,7 +117,7 @@ public class RaidBoss extends Monster
 				{
 					for (Player member : party.getMembers())
 					{
-						if (Config.ENABLE_RAIDBOSS_NOBLES && getNpcId() == Config.RAIDBOSS_NOBLES_ID && !member.isNoble() && member.isInsideRadius(getX(), getY(), getZ(), 1000, false, false))
+						if (Config.RAIDBOSS_NOBLES > 0 && getNpcId() == Config.RAIDBOSS_NOBLES && !member.isNoble() && member.isInsideRadius(getX(), getY(), getZ(), 1000, false, false))
 						{
 							member.setNoble(true, true);
 							member.getInventory().addItem("Nobles Circlets", 7694, 1, member, null);
@@ -137,7 +137,7 @@ public class RaidBoss extends Monster
 				}
 				else
 				{
-					if (Config.ENABLE_RAIDBOSS_NOBLES && getNpcId() == Config.RAIDBOSS_NOBLES_ID && !player.isNoble())
+					if (Config.RAIDBOSS_NOBLES > 0 && getNpcId() == Config.RAIDBOSS_NOBLES && !player.isNoble())
 					{
 						player.setNoble(true, true);
 						player.getInventory().addItem("Nobles Circlets", 7694, 1, player, null);
